@@ -1,0 +1,65 @@
+/*BODY, HTML STYLES*/
+body {
+    
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, 
+              #6a8f6b 40%,   
+              transparent 100%), 
+              url('../assets/images/PersonalPhotoTest.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+html, body {
+    height: 100%;   
+    margin: 0;      
+    padding: 0;
+}
+
+/*NAV BAR STYLE*/
+nav {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    padding:40px;
+    
+}
+.nav-links {
+    display: flex;           
+    gap: 80px;               
+    list-style: none;        
+    padding: 0;              
+    margin: 0;               
+}
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: #dde7dd;
+}
+/*ARTICLE STYLES*/
+  article{
+    padding: 50px;
+    color: #dde7dd;
+    border: solid 2px #dde7dd;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 1rem;
+}
+
+  article h1{
+    margin: 0px;
+    font-size: 3rem; 
+    letter-spacing: 1px; 
+  }
+
+  article p{
+    font-size: 1.2rem; 
+    line-height: 1.1; 
+  }
+
+  div{
+    border: solid 2px #dde7dd;
+}
