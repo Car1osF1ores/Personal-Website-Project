@@ -1,0 +1,96 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right,
+            #6a8f6b 40%,
+            transparent 100%),
+        url('../assets/images/PersonalPhotoTest.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+div {
+    border: 2px solid white;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/*NAV BAR STYLE*/
+.logo img {
+    width: 90px;
+    height: auto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    padding: 40px;
+
+}
+
+.nav-links {
+    display: flex;
+    gap: 80px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #dde7dd;
+    font-size: large;
+}
+
+
+.nav-links a:hover {
+    color: #221c42;
+}
+
+.more-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.more-links a img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    transition: transform .4s ease;
+}
+
+.more-links a img:hover {
+    transform: scale(1.2);
+}
+
+/*ARTICLE CONTENT STYLE*/
+
+article {
+    border: 1px solid white;
+    display: flex;
+    flex-direction: row;
+
+}
+
+article h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    color: #dde7dd;
+}
+
+article div {
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
+}
