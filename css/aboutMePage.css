@@ -2,6 +2,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+div {
+    border: 2px solid white;
+}
+
 /*SECTION STYLES*/
 .section-one {
     padding: 0px;
@@ -13,7 +17,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 100vh;
+    height: 90vh;
 }
 
 .section-two {
@@ -24,9 +28,7 @@ body {
     height: 100vh;
 }
 
-div {
-    border: 2px solid white;
-}
+
 
 html,
 body {
@@ -87,9 +89,13 @@ nav {
 }
 
 /*ARTICLE CONTENT STYLE*/
-
+.fany-word {
+    font-weight: bold;
+    font-size: 3rem;
+    font-family: 'font-family: Poppins';
+}
 article {
-    border: 1px solid white;
+    
     display: flex;
     flex-direction: row;
 
@@ -123,18 +129,17 @@ article div {
     flex:1;
     margin: 20px;
     padding: 20px;
-    border: 1px solid white;
+    
 }
 
 .description-resume-container {
+    color:#dde7dd;
     height: 600px;
     display: flex;
     flex-direction: row;
     justify-content:space-between;
     gap: 20px;
 }
-
-
   
   .info-card {
     background: #4c7e4c;
@@ -154,4 +159,52 @@ article div {
     color: #dde7dd;
     margin-bottom: 10px;
   }
+
+  .resume{
+    color:#dde7dd;
+    display: flex;
+    justify-content: left;
+    gap: 40px;
+  }
+
+  .Download-button{
+    margin:20px;
+    background: linear-gradient(135deg, #4CAF50, #2E8B57);
+    color: #dde7dd;
+    border: none;
+    border-radius: 100px;     
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .Download-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: linear-gradient(135deg, #45a049, #246b45);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    color: #fff;
+  }
+
+
+  /*Animations*/
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
   
+  .slide-in {
+    display: inline-block;
+    animation: slideInRight 1.2s ease-out forwards;
+  }
+  
+ 
