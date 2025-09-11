@@ -1,0 +1,86 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+/*SECTION STYLES*/
+
+.section-one {
+    padding: 0px;
+    margin: 0px;
+    background: linear-gradient(to right,
+            #6a8f6b 40%,
+            transparent 100%),
+        url('../assets/images/PersonalPhotoTest.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
+
+.section-two {
+    padding: 0px;
+    margin: 0px;
+    background: #6a8f6b;
+    color:black;
+    height: 100vh;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar Styles */
+
+.logo img {
+    width: 90px;
+    height: auto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    padding: 40px;
+
+}
+
+.nav-links {
+    display: flex;
+    gap: 80px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #dde7dd;
+    font-size: large;
+}
+
+
+.nav-links a:hover {
+    color: #221c42;
+    text-shadow: 10px 10px 200px black;
+}
+
+.more-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.more-links a img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    transition: transform .4s ease;
+}
+
+.more-links a img:hover {
+    transform: scale(1.2);
+}
