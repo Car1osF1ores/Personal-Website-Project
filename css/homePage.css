@@ -122,3 +122,8 @@ article p {
   box-shadow: 0 6px 15px rgba(0,0,0,0.3);
   background: linear-gradient(135deg, #45a049, #256d4d);
 }
+
+.slide-in {
+  display: inline-block;
+  animation: slideInRight 1.2s ease-out forwards;
+}
