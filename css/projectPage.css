@@ -1,10 +1,14 @@
 body{
     font-family: 'Roboto', sans-serif;
+    color: #dde7dd;
 }
+
 
 /*SECTION STYLES*/
 
 .section-one {
+    display: flex;
+    flex-direction: column;
     padding: 0px;
     margin: 0px;
     background: linear-gradient(to right,
@@ -17,13 +21,7 @@ body{
     height: 100vh;
 }
 
-.section-two {
-    padding: 0px;
-    margin: 0px;
-    background: #6a8f6b;
-    color:black;
-    height: 100vh;
-}
+
 
 html,
 body {
@@ -40,12 +38,17 @@ body {
 }
 
 nav {
+    background-color: rgba(0, 0, 0, 0.119);
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0px;
     padding: 40px;
-
+    width: 100%;
+    position: fixed;
+    left: 0;         
+    box-sizing: border-box;
+    z-index: 1000;
 }
 
 .nav-links {
@@ -83,3 +86,104 @@ nav {
 .more-links a img:hover {
     transform: scale(1.2);
 }
+
+/* Card Styles */
+
+.cards{
+    padding-top: 200px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;   
+    gap: 10px;             
+    overflow-y: auto;  
+    scroll-behavior: smooth;
+    height: 100vh;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    
+}
+.cards::-webkit-scrollbar {
+    display: none;                
+}
+
+.card {
+    margin: 60px;
+    display: flex;
+    flex: 0 0 auto; 
+    width: 800px;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.18);
+    font-family: Arial, sans-serif;
+    transition: transform .5s ease;
+}
+
+.card-image {
+    position: relative;
+    width: 75%;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-title {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: #fff;
+    padding: 8px 12px;
+    font-size: 3.2rem;
+}
+
+.card-info {
+    width: 25%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.card-info h2 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #221c42;
+}
+
+.card-info p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    
+}
+
+/*button Styles*/
+
+.git-button {
+    margin-top: 20px;
+    display: inline-flex;                 
+    justify-content: center;
+    align-items: center;
+    gap: 10px;                            
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #5a665b, #1f623c);
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    box-shadow: 0 4px 30px rgba(0,0,0,10);
+    cursor: pointer;
+    text-decoration: none;                
+    color: #221c42;
+  }
+  
+ 
+  
+  .git-button:hover {
+    background: linear-gradient(135deg, #7fa881, #527060);
+  }
