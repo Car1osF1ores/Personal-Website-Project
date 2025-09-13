@@ -12,9 +12,9 @@ body{
     padding: 0px;
     margin: 0px;
     background: linear-gradient(to right,
-            #6a8f6b 40%,
-            transparent 100%),
-        url('../assets/images/PersonalPhotoTest.jpg');
+      #6a8f6b 10%,
+      transparent 100%),
+    url('../assets/images/nature.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -38,7 +38,6 @@ body {
 }
 
 nav {
-    background-color: rgba(0, 0, 0, 0.119);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,6 +48,12 @@ nav {
     left: 0;         
     box-sizing: border-box;
     z-index: 1000;
+    background: rgba( 255, 255, 255, 0.2 );
+    backdrop-filter: blur( 12px );
+    -webkit-backdrop-filter: blur( 12px );
+    box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.18 );
+    border-radius: 16px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .nav-links {
@@ -114,9 +119,16 @@ nav {
     height: 300px;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.18);
+    
     font-family: Arial, sans-serif;
     transition: transform .5s ease;
+    background: rgba( 255, 255, 255, 0.2 );
+    backdrop-filter: blur( 12px );
+    -webkit-backdrop-filter: blur( 12px );
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.449);
+    border-radius: 16px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    
 }
 
 .card-image {
