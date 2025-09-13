@@ -5,7 +5,7 @@ body {
   min-height: 100vh;
   font-family: 'Roboto', sans-serif;
   background: linear-gradient(to right,
-      #6a8f6b 40%,
+      #6a8f6b 10%,
       transparent 100%),
     url('../assets/images/PersonalPhotoTest.jpg');
   background-size: cover;
@@ -33,7 +33,11 @@ nav {
   align-items: center;
   margin: 0px;
   padding: 40px;
-
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .nav-links {
@@ -126,4 +130,57 @@ article p {
 .slide-in {
   display: inline-block;
   animation: slideInRight 1.2s ease-out forwards;
+}
+
+/*animation for slide-in effect*/
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-right-left {
+  display: inline-block;
+  animation: slideInRight 1.2s ease-out forwards;
+}
+
+.slide-in-top-bottom {
+  display: inline-block;
+  animation: slideInDown 1.2s ease-out forwards;
+}
+
+.slide-in-bottom-top {
+  display: inline-block;
+  animation: slideInUp 1.2s ease-out forwards;
 }
