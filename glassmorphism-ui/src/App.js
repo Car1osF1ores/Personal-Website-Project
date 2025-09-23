@@ -7,13 +7,6 @@ import ContactMePage from "./pages/ContactMePage";
 function App() {
   return (
     <div>
-      <nav>
-        <Link to="/">Home</Link> |{" "}
-        <Link to="/about">About</Link> |{" "}
-        <Link to="/projects">Projects</Link> |{" "}
-        <Link to="/contact">Contact Me</Link>
-      </nav>
-
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
