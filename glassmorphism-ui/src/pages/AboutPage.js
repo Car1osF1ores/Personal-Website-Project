@@ -1,62 +1,106 @@
 import { Link } from "react-router-dom";
-import "../css/homePage.css"; // Import your CSS file
+import "../css/aboutMePage.css"; // Import your CSS file
 
-function HomePage() {
+function AboutPage() {
   return (
     <div>
-      <nav>
-        <div className="logo">
-          <a href="#">
-            <img src="../assets/images/CFLogo.png" alt="Logo" />
-          </a>
-        </div>
+      <section className="section-one">
+        <nav>
+          <div className="logo">
+            <Link to="/">
+              <img src="/assets/images/CFLogo.png" alt="Logo" />
+            </Link>
+          </div>
 
-        <ul className="nav-links">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About Me</Link></li>
-          <li><Link to="/projects">Projects</Link></li>
-          <li><a href="#link3">Contact Me</a></li>
-        </ul>
+          <ul className="nav-links">
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About Me</Link></li>
+            <li><Link to="/projects">Projects</Link></li>
+            <li><a href="#contact">Contact Me</a></li>
+          </ul>
 
-        <div className="more-links">
-          <a href="https://www.linkedin.com/jobs/" target="_blank" rel="noreferrer">
-            <img src="../assets/images/linkedInIcon.png" alt="LinkedIn link" />
-          </a>
-          <a href="https://github.com/" target="_blank" rel="noreferrer">
-            <img src="../assets/images/GitHub-Symbol.png" alt="GitHub link" />
-          </a>
-        </div>
-      </nav>
+          <div className="more-links">
+            <a href="https://www.linkedin.com/jobs/" target="_blank" rel="noreferrer">
+              <img src="/assets/images/linkedInIcon.png" alt="LinkedIn link" />
+            </a>
+            <a href="https://github.com/" target="_blank" rel="noreferrer">
+              <img src="/assets/images/GitHub-Symbol.png" alt="GitHub link" />
+            </a>
+          </div>
+        </nav>
 
-      <article>
-        <div className="left-article">
+        <article>
           <div>
-            <h1 className="slide-in-right-left">Curiosity. Discipline.</h1>
-            <h1 style={{ fontFamily: "Poppins" }} className="slide-in-top-bottom">
-              Challenge-Driven
+            <h1 className="slide-in-right-left">
+              Hello! I'm Carlos, A <span className="fany-word">Passionate</span> Developer With A
+              Love For Creating <span className="fany-word">Innovative Solutions</span> And
+              <span className="fany-word"> Simplicity</span>
             </h1>
+          </div>
+          <div>
             <p className="slide-in-top-bottom">
-              Hello there, this is where I share my journey, projects, and thoughts.
-              Feel free to explore and learn more about me! I am a passionate
-              software developer looking for an opportunity to contribute and grow
-              in the tech industry. I have much to learn and I am eager to take on
-              new challenges. I aim to connect with like-minded professionals and
-              explore potential opportunities for my career growth.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam,
+              debitis iste voluptas deserunt reprehenderit unde facere quae itaque
+              nesciunt alias sequi nobis, fugiat ut, modi similique adipisci obcaecati
+              quos labore.
             </p>
           </div>
+        </article>
+      </section>
 
-          <div>
-            <h3 className="slide-in-bottom-top">
-              <Link to="/about" className="about-me-button-homepage">
-                About Me & Experience | Resume
-              </Link>
-            </h3>
+      <section className="section-two">
+        <div className="resume">
+          <div className="resume-left">
+            <div className="Download-button">Download | Resume</div>
+            <h1>My Resume</h1>
+          </div>
+
+          <div className="resume-right">
+            <img src="/assets/icons/.NETicon.png" alt=".NET Icon" />
+            <img src="/assets/icons/c-sharp.png" alt="C# Icon" />
+            <img src="/assets/icons/css-3.png" alt="CSS3 Icon" />
+            <img src="/assets/icons/darticon.png" alt="Dart Icon" />
+            <img src="/assets/icons/developer.png" alt="Developer Icon" />
+            <img src="/assets/icons/fluttericon.png" alt="Flutter Icon" />
+            <img src="/assets/icons/html-5.png" alt="HTML5 Icon" />
+            <img src="/assets/icons/javascripticon.png" alt="JavaScript Icon" />
+            <img src="/assets/icons/kotlinicon.webp" alt="Kotlin Icon" />
+            <img src="/assets/icons/program.png" alt="Program Icon" />
+            <img src="/assets/icons/springbooticon.png" alt="Spring Boot Icon" />
+            <img src="/assets/icons/SQLicon.png" alt="SQL Icon" />
           </div>
         </div>
-      </article>
+
+        <div className="description-resume-container">
+          <div className="about-me-header">
+            <h1>About Me</h1>
+          </div>
+
+          <div className="info-cards-container">
+            <div className="info-card">
+              <h2>Work Experience</h2>
+              <p>
+                This is a test paragraph for my resume section Lorem, ipsum dolor sit amet
+                consectetur adipisicing elit. Impedit velit sunt qui quia libero nam magnam
+                suscipit, expedita quisquam dolorem nobis officia eaque inventore corrupti?
+                A quam amet sunt ullam.
+              </p>
+            </div>
+
+            <div className="info-card">
+              <h2>Projects</h2>
+              <p>
+                This is a test paragraph for my resume section Lorem, ipsum dolor sit amet
+                consectetur adipisicing elit. Impedit velit sunt qui quia libero nam magnam
+                suscipit, expedita quisquam dolorem nobis officia eaque inventore corrupti?
+                A quam amet sunt ullam.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
 
-export default HomePage;
-  
+export default AboutPage;
