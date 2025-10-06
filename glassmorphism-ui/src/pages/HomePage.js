@@ -3,7 +3,7 @@ import "../css/homePage.css"; // Import your CSS file
 
 function HomePage() {
   return (
-    <div>
+    <div className="homepage-container">
       <nav>
         <div className="logo">
           <Link to="/">
@@ -71,7 +71,9 @@ function HomePage() {
             </div>
           </div>
         
-        <div></div>
+        <div>
+          
+        </div>
       </article>
     </div>
   );
