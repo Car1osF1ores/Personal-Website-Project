@@ -9,6 +9,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
 }
 
 html,
@@ -46,6 +47,10 @@ nav {
   margin: 0;
 }
 
+div{
+  border: 1x solid rgb(244, 0, 0);
+}
+
 .nav-links li a {
   text-decoration: none;
   color: #dde7dd;
@@ -73,23 +78,22 @@ nav {
   transform: scale(1.2); 
 }
 
-div{
-  border: 1px solid black;
-}
-
-/*Home page container*/
 .homepage-container{
-  border: 1px solid rgb(185, 185, 222);
+
+  
+  display: flex;
+  justify-content: center;   
+  align-items: flex-start;   
+  padding-top: 140px; 
+  overflow: hidden;
 }
 
-/*ARTICLE STYLES*/
+
 article {
-  height: 500px;
-  border: 1px solid rgb(126, 0, 0);
-  color: #dde7dd;
-  display: grid;
-  padding:20px
   
+  height: 500px;
+  color: #dde7dd;
+  padding:20px;
 }
 
 article h1 {
@@ -105,7 +109,7 @@ article p {
 
 
 .left-article {
-  border: 1px solid rgb(0, 126, 0);
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
