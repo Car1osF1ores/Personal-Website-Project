@@ -1,32 +1,11 @@
 import { Link } from "react-router-dom";
 import "../css/projectPage.css"; // Import your CSS
+import Navbar from "../components/Navbar";
 
 function ProjectsPage() {
   return (
     <section className="section-one">
-      <nav>
-        <div className="logo">
-          <a href="#">
-            <img src="../assets/images/CFLogo.png" alt="Logo" />
-          </a>
-        </div>
-        
-        <ul className="nav-links">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About Me</Link></li>
-          <li><Link to="/projects">Projects</Link></li>
-          <li><a href="#link3">Contact Me</a></li>
-        </ul>
-
-        <div className="more-links">
-          <a href="https://www.linkedin.com/jobs/" target="_blank" rel="noreferrer">
-            <img src="../assets/images/linkedInIcon.png" alt="LinkedIn link" />
-          </a>
-          <a href="https://github.com/" target="_blank" rel="noreferrer">
-            <img src="../assets/images/GitHub-Symbol.png" alt="GitHub link" />
-          </a>
-        </div>
-      </nav>
+      <Navbar />
 
       <div className="cards">
         {/* Card 1 */}
@@ -94,4 +73,3 @@ function ProjectsPage() {
 }
 
 export default ProjectsPage;
-  
