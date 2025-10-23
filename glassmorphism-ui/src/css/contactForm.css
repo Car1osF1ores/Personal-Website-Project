@@ -1,0 +1,76 @@
+.contact-container {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 25px 30px; /* reduced padding */
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+    color: #fff;
+    max-width: 420px; /* makes it visually compact */
+  }
+  
+  .contact-container h2 {
+    margin-bottom: 18px; /* tighter heading spacing */
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .form-group {
+    margin-bottom: 14px; /* less vertical space between fields */
+  }
+  
+  label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 8px 10px; /* smaller input padding */
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 0.9rem; /* slightly smaller text */
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.3s;
+    
+  }
+  
+  input:focus,
+  textarea:focus {
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  textarea {
+    height: 100px; /* 👈 fixed height */
+    resize: none;  /* 👈 prevents manual resizing */
+  }
+
+  button {
+    width: 100%;
+    background: rgba(0, 123, 255, 0.8);
+    color: white;
+    padding: 10px; /* smaller button */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: rgba(0, 123, 255, 1);
+  }
+  
+  button:disabled {
+    background: gray;
+    cursor: not-allowed;
+  }
+  

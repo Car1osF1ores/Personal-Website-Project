@@ -1,0 +1,45 @@
+.contact-me-page {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+  padding: 60px;
+  margin-top: 150px; /*This controls the hight of the content*/
+}
+
+/* Left box */
+.get-in-touch {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  color: #fff;
+  height: 360px;
+}
+
+/* Right form */
+.form-section {
+  flex: 1;
+}
+
+/* Make it mobile friendly */
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+  }
+
+  .get-in-touch,
+  .form-section {
+    width: 100%;
+  }
+}

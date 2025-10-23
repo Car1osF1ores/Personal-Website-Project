@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import "../css/aboutMePage.css"; // Import your CSS file
 import "../css/Navbar.css"; // Import Navbar CSS
 import Navbar from "../components/Navbar.js";
