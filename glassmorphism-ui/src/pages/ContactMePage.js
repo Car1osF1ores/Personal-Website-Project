@@ -4,6 +4,8 @@ import ContactForm from "../components/ContactForm.js";
 import "../css/contactForm.css";
 import "../css/contactMePage.css";
 import { FaEnvelope } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa";
+
 function ContactMePage() {
   return (
     <div className="contact-me-page">
@@ -35,7 +37,7 @@ function ContactMePage() {
 
             <div className="contact-email">
               <p>
-                <FaEnvelope className="slide-in-right-left" />
+                <FaPhone className="slide-in-right-left" />
               </p>
               <h3 className="slide-in-right-left">905-991-4423</h3>
             </div>
