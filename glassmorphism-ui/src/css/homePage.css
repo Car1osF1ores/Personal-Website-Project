@@ -1,15 +1,11 @@
 /*BODY, HTML STYLES*/
 body {
-  
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(to right,
-      #6a8f6b 10%,
-      transparent 100%),
-    url('C:\Users\C2005\OneDrive\Desktop\Personal-Website-Project\glassmorphism-ui\public\assets\images\PersonalPhotoTest.jpg');
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(to right, #6a8f6b 10%, transparent 100%),
+    url("C:\Users\C2005\OneDrive\Desktop\Personal-Website-Project\glassmorphism-ui\public\assets\images\PersonalPhotoTest.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-
 }
 
 html,
@@ -19,24 +15,18 @@ body {
   padding: 0;
 }
 
-
-
-.homepage-container{
-
-  
+.homepage-container {
   display: flex;
-  justify-content: center;   
-  align-items: flex-start;   
-  padding-top: 140px; 
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 140px;
   overflow: hidden;
 }
 
-
 article {
-  
   height: 500px;
   color: #dde7dd;
-  padding:20px;
+  padding: 20px;
 }
 
 article h1 {
@@ -50,9 +40,7 @@ article p {
   line-height: 1.1;
 }
 
-
 .left-article {
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -63,19 +51,19 @@ article p {
 .about-me-button-homepage {
   display: inline-block;
   padding: 12px 24px;
-  background: linear-gradient(135deg, #4CAF50, #2E8B57);
+  background: linear-gradient(135deg, #4caf50, #2e8b57);
   color: #fff;
   font-size: 18px;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 30px;       
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .about-me-button-homepage:hover {
-  transform: translateY(-3px) scale(1.05);  
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   background: linear-gradient(135deg, #45a049, #256d4d);
 }
 
