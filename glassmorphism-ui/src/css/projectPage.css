@@ -1,141 +1,80 @@
-body{
-    font-family: 'Roboto', sans-serif;
-    color: #dde7dd;
+/* Global */
+body {
+  font-family: "Roboto", sans-serif;
+  color: #dde7dd;
+  margin: 0;
+  padding: 0;
 }
 
-
-/*SECTION STYLES*/
-
-.section-one {
-    display: flex;
-    flex-direction: column;
-    padding: 0px;
-    margin: 0px;
-    background: linear-gradient(to right,
-      #6a8f6b 10%,
-      transparent 100%),
-    url("C:\Users\C2005\OneDrive\Desktop\Personal-Website-Project\glassmorphism-ui\public\assets\images\PersonalPhotoTest.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh;
-}
-
-
-
+/* Ensures full-height layout */
 html,
 body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-/* Card Styles */
+/* SECTION STYLES */
+.section-one {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
 
-.cards{
-    padding-top: 200px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;   
-    gap: 10px;             
-    overflow-y: auto;  
-    scroll-behavior: smooth;
-    height: 100vh;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    
-}
-.cards::-webkit-scrollbar {
-    display: none;                
-}
+  background: linear-gradient(
+      to right,
+      rgba(106, 143, 107, 0.9) 10%,
+      rgba(0, 0, 0, 0.4) 100%
+    ),
+    url("C:\Users\C2005\OneDrive\Desktop\Personal-Website-Project\glassmorphism-ui\public\assets\images\treeForest.jpg");
 
-.card {
-    margin: 60px;
-    display: flex;
-    flex: 0 0 auto; 
-    width: 800px;
-    height: 300px;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.6s ease;
-    font-family: Arial, sans-serif;
-    transition: transform .5s ease;
-    background: rgba( 255, 255, 255, 0.2 );
-    backdrop-filter: blur( 12px );
-    -webkit-backdrop-filter: blur( 12px );
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-    border-radius: 16px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.card:hover {
-    transform: scale(1.1);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.321);
+/* Card Grid Container */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 40px 60px;
+  margin-top: 20px;
 }
 
-.card-image {
-    position: relative;
-    width: 75%;
+/* Prevents cards from hugging the navbar */
+.navbar-spacing {
+  margin-top: 40px;
 }
 
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* Smooth fade-in animation */
+.project-card {
+  animation: fadeIn 0.4s ease forwards;
+  opacity: 0;
 }
 
-.card-title {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    color: #fff;
-    padding: 8px 12px;
-    font-size: 3.2rem;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.card-info {
-    width: 25%;
+/* OPTIONAL: Hover animation polish */
+.project-card:hover {
+  transform: scale(1.03);
+  transition: 0.2s ease;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .cards {
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.card-info h2 {
-    margin: 0 0 10px;
-    font-size: 1.2rem;
-    color: #221c42;
-}
-
-.card-info p {
-    margin: 0;
-    font-size: 0.95rem;
-}
-
-
-
-/*button Styles*/
-
-.git-button {
-    margin-top: 20px;
-    display: inline-flex;                 
-    justify-content: center;
-    align-items: center;
-    gap: 10px;                            
-    padding: 12px 24px;
-    background: linear-gradient(135deg, #5a665b, #1f623c);
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 25px;
-    box-shadow: 0 4px 30px rgba(0,0,0,10);
-    cursor: pointer;
-    text-decoration: none;                
-    color: #221c42;
+    grid-template-columns: 1fr;
   }
-  
- 
-  
-  .git-button:hover {
-    background: linear-gradient(135deg, #7fa881, #527060);
-  }
+}

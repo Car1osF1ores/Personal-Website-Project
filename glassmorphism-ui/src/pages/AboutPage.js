@@ -35,7 +35,7 @@ function AboutPage() {
           </div>
 
           <div className="resume-right">
-            <img src="/assets/icons/.NETicon.png" alt=".NET Icon" />
+            <img src="/assets/icons/NETicon.png" alt=".NET Icon" />
             <img src="/assets/icons/c-sharp.png" alt="C# Icon" />
             <img src="/assets/icons/css-3.png" alt="CSS3 Icon" />
             <img src="/assets/icons/darticon.png" alt="Dart Icon" />

@@ -1,5 +1,5 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 /*SECTION STYLES*/
@@ -7,21 +7,18 @@ body {
 .section-one {
   padding: 0px;
   margin: 0px;
-  background: linear-gradient(to right,
-      #6a8f6b 10%,
-      transparent 100%),
-    url('C:\Users\C2005\OneDrive\Desktop\Personal-Website-Project\glassmorphism-ui\public\assets\images\PersonalPhotoTest.jpg');
+  background: linear-gradient(to right, #6a8f6b 10%, transparent 100%),
+    url("C:\Users\C2005\OneDrive\Desktop\Personal-Website-Project\glassmorphism-ui\public\assets\images\PersonalPhotoTest.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-attachment: fixed;
   height: 100vh;
 }
 
 .section-two {
-  background: linear-gradient(to right,
-      #6a8f6b33 10%,
-      transparent 100%),
-    url('C:\Users\C2005\OneDrive\Desktop\Personal-Website-Project\glassmorphism-ui\public\assets\images\nature.jpg');
+  background: linear-gradient(to right, #6a8f6b33 10%, transparent 100%),
+    url("C:\Users\C2005\OneDrive\Desktop\Personal-Website-Project\glassmorphism-ui\public\assets\images\nature.jpg");
   padding: 0px;
   margin: 0px;
   color: black;
@@ -45,13 +42,12 @@ body {
   padding: 0;
 }
 
-
-
 /*ARTICLE CONTENT STYLE*/
+
 .fany-word {
   font-weight: bold;
   font-size: 3rem;
-  font-family: 'font-family: Poppins';
+  font-family: "font-family: Poppins";
 }
 
 article {
@@ -85,14 +81,13 @@ article p {
 
 .resume {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   gap: 40px;
   padding: 20px;
-  width: 100%; 
+  width: 100%;
   box-sizing: border-box;
 }
-
 
 .resume-left {
   justify-content: center;
@@ -101,29 +96,26 @@ article p {
   flex-direction: row;
   gap: 15px;
   align-items: flex-start;
-  flex: 1; 
+  flex: 1;
   border-radius: 30px;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.2); 
-  backdrop-filter: blur(12px);           
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
-
-
-
 
 .resume-right {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-  justify-content: flex-end; 
+  justify-content: flex-end;
   flex-shrink: 0;
-  padding:20px;
+  padding: 20px;
   border-radius: 30px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
-  background: rgba(255, 255, 255, 0.2); 
-  backdrop-filter: blur(12px);           
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: all 0.3s ease;
 }
@@ -133,7 +125,7 @@ article p {
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transform: translateY(-5px) scale(1.02); 
+  transform: translateY(-5px) scale(1.02);
 }
 
 .resume-right img {
@@ -144,18 +136,16 @@ article p {
 }
 
 .resume-right img:hover {
-  transform: scale(1.2); 
-  filter: brightness(1.2); 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25); 
+  transform: scale(1.2);
+  filter: brightness(1.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
 
 .description-resume-container div {
   flex: 1;
   margin: 20px;
   padding: 20px;
-
 }
-
 
 .description-resume-container {
   color: #dde7dd;
@@ -166,21 +156,18 @@ article p {
   gap: 20px;
 }
 
-
-
 .info-card {
   border-radius: 40px;
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
-  background: rgba(255, 255, 255, 0.2); 
-  backdrop-filter: blur(12px);           
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  
+
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 20px;
-  
 }
 
 .info-card:hover {
@@ -203,7 +190,7 @@ p {
 
 .Download-button {
   margin: 20px;
-  background: linear-gradient(135deg, #4CAF50, #2E8B57);
+  background: linear-gradient(135deg, #4caf50, #2e8b57);
   color: #dde7dd;
   border: none;
   border-radius: 100px;
@@ -221,7 +208,6 @@ p {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
   color: #fff;
 }
-
 
 /*Animations*/
 

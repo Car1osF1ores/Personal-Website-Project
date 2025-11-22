@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
-import "../css/projectPage.css"; // Import your CSS
+import "../css/projectPage.css";
 import Navbar from "../components/Navbar";
+
+import ProjectCard from "../components/ProjectCard";
+import { projects } from "../data/projects"; // Your project data array
 
 function ProjectsPage() {
   return (
@@ -8,65 +11,9 @@ function ProjectsPage() {
       <Navbar />
 
       <div className="cards">
-        {/* Card 1 */}
-        <div className="card">
-          <div className="card-image">
-            <img src="https://picsum.photos/800/600" alt="Example Project" />
-            <div className="card-title">Card Title</div>
-          </div>
-          <div className="card-info">
-            <h2>Info Section</h2>
-            <p>
-              This is where you can put details or a short description about the
-              image or card content.
-            </p>
-            <a href="https://github.com/" target="_blank" rel="noreferrer">
-              <div className="git-button">
-                <p>Github Link</p>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        {/* Card 2 */}
-        <div className="card">
-          <div className="card-image">
-            <img src="https://picsum.photos/800/600" alt="Example Project" />
-            <div className="card-title">Card Title</div>
-          </div>
-          <div className="card-info">
-            <h2>Info Section</h2>
-            <p>
-              This is where you can put details or a short description about the
-              image or card content.
-            </p>
-            <a href="https://github.com/" target="_blank" rel="noreferrer">
-              <div className="git-button">
-                <p>Github Link</p>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        {/* Card 3 */}
-        <div className="card">
-          <div className="card-image">
-            <img src="https://picsum.photos/800/600" alt="Example Project" />
-            <div className="card-title">Card Title</div>
-          </div>
-          <div className="card-info">
-            <h2>Info Section</h2>
-            <p>
-              This is where you can put details or a short description about the
-              image or card content.
-            </p>
-            <a href="https://github.com/" target="_blank" rel="noreferrer">
-              <div className="git-button">
-                <p>Github Link</p>
-              </div>
-            </a>
-          </div>
-        </div>
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
       </div>
     </section>
   );
