@@ -6,6 +6,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-attachment: fixed;
 }
 
 html,
@@ -123,4 +124,76 @@ article p {
 .slide-in-bottom-top {
   display: inline-block;
   animation: slideInUp 1.2s ease-out forwards;
+}
+
+/*MEDIA QUERIES*/
+@media (max-width: 768px) {
+  body {
+    background-position: center right;
+    background-size: cover;
+  }
+
+  .homepage-container {
+    padding-top: 100px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  article {
+    height: auto;
+    min-height: 400px;
+    padding: 15px;
+  }
+
+  article h1 {
+    font-size: 2rem;
+  }
+
+  article p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .left-article {
+    gap: 30px;
+  }
+
+  .about-me-button-homepage {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    background-position: 70% center;
+  }
+
+  .homepage-container {
+    padding-top: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  article {
+    padding: 10px;
+  }
+
+  article h1 {
+    font-size: 1.5rem;
+  }
+
+  article p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .left-article {
+    gap: 40px;
+  }
+
+  .about-me-button-homepage {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
 }
