@@ -6,7 +6,20 @@ function AboutPage() {
     <div>
       <section className="section-one">
         <Navbar />
-
+        <div className="resume-right">
+          <img src="/assets/icons/NETicon.png" alt=".NET Icon" />
+          <img src="/assets/icons/c-sharp.png" alt="C# Icon" />
+          <img src="/assets/icons/css-3.png" alt="CSS3 Icon" />
+          <img src="/assets/icons/darticon.png" alt="Dart Icon" />
+          <img src="/assets/icons/developer.png" alt="Developer Icon" />
+          <img src="/assets/icons/fluttericon.png" alt="Flutter Icon" />
+          <img src="/assets/icons/html-5.png" alt="HTML5 Icon" />
+          <img src="/assets/icons/javascripticon.png" alt="JavaScript Icon" />
+          <img src="/assets/icons/kotlinicon.webp" alt="Kotlin Icon" />
+          <img src="/assets/icons/program.png" alt="Program Icon" />
+          <img src="/assets/icons/springbooticon.png" alt="Spring Boot Icon" />
+          <img src="/assets/icons/SQLicon.png" alt="SQL Icon" />
+        </div>
         <article>
           <div>
             <h1 className="slide-in-right-left">
@@ -18,10 +31,13 @@ function AboutPage() {
           </div>
           <div>
             <p className="slide-in-top-bottom">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam,
-              debitis iste voluptas deserunt reprehenderit unde facere quae
-              itaque nesciunt alias sequi nobis, fugiat ut, modi similique
-              adipisci obcaecati quos labore.
+              I’ve worked on full-stack web applications and RESTful APIs,
+              building backend services, designing responsive frontends, and
+              integrating database-driven systems. My experience includes
+              authentication, CRUD operations, caching, clean architecture, and
+              object-oriented design. I focus on writing maintainable code,
+              improving performance, and continuously learning modern
+              technologies to deliver reliable, scalable solutions.
             </p>
           </div>
         </article>
@@ -32,24 +48,6 @@ function AboutPage() {
           <div className="resume-left">
             <div className="Download-button">Download | Resume</div>
             <h1>My Resume</h1>
-          </div>
-
-          <div className="resume-right">
-            <img src="/assets/icons/NETicon.png" alt=".NET Icon" />
-            <img src="/assets/icons/c-sharp.png" alt="C# Icon" />
-            <img src="/assets/icons/css-3.png" alt="CSS3 Icon" />
-            <img src="/assets/icons/darticon.png" alt="Dart Icon" />
-            <img src="/assets/icons/developer.png" alt="Developer Icon" />
-            <img src="/assets/icons/fluttericon.png" alt="Flutter Icon" />
-            <img src="/assets/icons/html-5.png" alt="HTML5 Icon" />
-            <img src="/assets/icons/javascripticon.png" alt="JavaScript Icon" />
-            <img src="/assets/icons/kotlinicon.webp" alt="Kotlin Icon" />
-            <img src="/assets/icons/program.png" alt="Program Icon" />
-            <img
-              src="/assets/icons/springbooticon.png"
-              alt="Spring Boot Icon"
-            />
-            <img src="/assets/icons/SQLicon.png" alt="SQL Icon" />
           </div>
         </div>
 
