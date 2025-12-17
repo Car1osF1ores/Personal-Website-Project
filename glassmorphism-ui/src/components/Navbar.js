@@ -1,27 +1,57 @@
 import { Link } from "react-router-dom";
-import "../css/Navbar.css"; // Import your CSS file
+import { useState } from "react";
+import "../css/Navbar.css";
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <nav>
       <div className="logo">
-        <Link to="/">
+        <Link to="/" onClick={closeMenu}>
           <img src="/assets/images/CFLogo.png" alt="Logo" />
         </Link>
       </div>
 
-      <ul className="nav-links">
+      {/* Hamburger Icon */}
+      <button
+        className={`hamburger ${isOpen ? "active" : ""}`}
+        onClick={toggleMenu}
+        aria-label="Toggle menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul className={`nav-links ${isOpen ? "active" : ""}`}>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={closeMenu}>
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="/about">About Me</Link>
+          <Link to="/about" onClick={closeMenu}>
+            About Me
+          </Link>
         </li>
         <li>
-          <Link to="/projects">Projects</Link>
+          <Link to="/projects" onClick={closeMenu}>
+            Projects
+          </Link>
         </li>
         <li>
-          <a href="/contact">Contact Me</a>
+          <a href="/contact" onClick={closeMenu}>
+            Contact Me
+          </a>
         </li>
       </ul>
 

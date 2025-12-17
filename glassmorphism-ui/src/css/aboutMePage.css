@@ -14,6 +14,8 @@ body {
   background-position: center;
   background-attachment: fixed;
   height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .section-two {
@@ -27,6 +29,8 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   z-index: 1000;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .section-one nav {
@@ -40,6 +44,8 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /*ARTICLE CONTENT STYLE*/
@@ -53,12 +59,16 @@ body {
 article {
   display: flex;
   flex-direction: row;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 article h1 {
   font-size: 2.5rem;
   letter-spacing: 1px;
   color: #dde7dd;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 article div {
@@ -108,7 +118,9 @@ article p {
   display: flex;
   gap: 15px;
   justify-content: center;
+  align-items: center;
   flex-shrink: 0;
+  flex-wrap: wrap;
   padding: 20px;
   border-radius: 30px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -201,6 +213,8 @@ p {
   transition: background-color 0.3s ease, color 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: fit-content;
+  white-space: nowrap;
 }
 
 .Download-button:hover {
@@ -244,4 +258,193 @@ p {
 .slide-in-top-bottom {
   display: inline-block;
   animation: slideInDown 1.2s ease-out forwards;
+}
+
+/* ============================================ */
+/* MOBILE RESPONSIVE STYLES */
+/* ============================================ */
+
+/* Mobile - 480px and below */
+@media (max-width: 480px) {
+  /* Section adjustments */
+  .section-one,
+  .section-two {
+    height: auto;
+    min-height: 100vh;
+    background-attachment: scroll;
+  }
+
+  /* Article layout */
+  article {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  article h1 {
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  article div {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  article p {
+    font-size: 1rem;
+  }
+
+  .fany-word {
+    font-size: 1.8rem;
+  }
+
+  /* Resume section */
+  .resume {
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .resume-left {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .resume-right {
+    flex-wrap: wrap;
+    padding: 10px 8px;
+    max-width: 95%;
+    margin: 20px auto;
+    gap: 8px;
+  }
+
+  .resume-right img {
+    width: 30px;
+  }
+
+  /* Download button */
+  .Download-button {
+    width: fit-content;
+    margin: 10px auto;
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+
+  /* Description container */
+  .description-resume-container {
+    flex-direction: column;
+    height: auto;
+    gap: 15px;
+  }
+
+  .description-resume-container div {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  /* Info cards */
+  .info-card {
+    border-radius: 20px;
+    padding: 15px;
+  }
+
+  .info-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .info-card p {
+    font-size: 0.95rem;
+  }
+
+  /* Image container */
+  .image-container img {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Tablet - 481px to 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Section adjustments */
+  .section-one,
+  .section-two {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  /* Article layout */
+  article {
+    flex-direction: column;
+  }
+
+  article h1 {
+    font-size: 2rem;
+  }
+
+  article p {
+    font-size: 1.1rem;
+  }
+
+  .fany-word {
+    font-size: 2.3rem;
+  }
+
+  /* Resume section */
+  .resume {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .resume-left {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .resume-right {
+    padding: 18px;
+    max-width: 90%;
+  }
+
+  /* Description container */
+  .description-resume-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* Info cards */
+  .info-card {
+    padding: 18px;
+  }
+
+  /* Image container */
+  .image-container img {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* Small Desktop - 769px to 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  article h1 {
+    font-size: 2.2rem;
+  }
+
+  .fany-word {
+    font-size: 2.6rem;
+  }
+
+  .resume {
+    gap: 30px;
+  }
+
+  .description-resume-container {
+    height: auto;
+    min-height: 550px;
+  }
+
+  .image-container img {
+    width: 450px;
+  }
 }
