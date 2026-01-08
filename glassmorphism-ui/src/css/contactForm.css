@@ -72,3 +72,24 @@ button:disabled {
   background: gray;
   cursor: not-allowed;
 }
+
+@media screen and (max-width: 480px) {
+  .contact-container {
+    width: calc(100% - 24px);
+    margin: 0 12px;
+    padding: 16px;
+  }
+
+  .contact-container h2 {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+  }
+
+  .form-group {
+    margin-bottom: 12px;
+  }
+
+  textarea {
+    height: 80px;
+  }
+}
