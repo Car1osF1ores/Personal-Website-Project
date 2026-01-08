@@ -409,6 +409,7 @@ function ProjectsPage() {
   );
 }
 
+//--------PROJECT CARD COMPONENT--------//
 function ProjectCard({ project }) {
   return (
     <div className="project-card">
