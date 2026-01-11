@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "../css/homePage.css"; // Import your CSS file
 import "../css/Navbar.css"; // Import Navbar CSS
 import Navbar from "../components/Navbar.js";
+import Icons from "../components/Icons.js";
 
 function HomePage() {
   return (

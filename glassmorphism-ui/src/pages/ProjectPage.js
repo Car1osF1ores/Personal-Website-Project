@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
-
+import Icons from "../components/Icons";
 // Inline styles for glassmorphism
 const styles = `
 * { box-sizing: border-box; }
@@ -429,6 +429,7 @@ function ProjectsPage() {
     <>
       <style>{styles}</style>
       <Navbar />
+
       <div className="projects-page">
         <div className="container">
           <header className="projects-header">
