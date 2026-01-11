@@ -141,6 +141,7 @@ article p {
 }
 
 .Download-button {
+  display: inline-block; /* Add this line */
   margin: 20px;
   background: linear-gradient(135deg, #4caf50, #2e8b57);
   color: #dde7dd;
@@ -153,6 +154,7 @@ article p {
   width: fit-content;
   white-space: nowrap;
   cursor: pointer;
+  text-decoration: none; /* Optional: removes underline */
 }
 
 .Download-button:hover {
@@ -355,13 +357,6 @@ article p {
 
   .about-me-header {
     align-items: center;
-  }
-
-  .Download-button {
-    width: fit-content;
-    margin: 10px auto;
-    padding: 12px 20px;
-    font-size: 1rem;
   }
 
   .description-resume-container {

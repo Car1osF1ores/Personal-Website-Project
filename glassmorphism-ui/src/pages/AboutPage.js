@@ -53,7 +53,14 @@ function AboutPage() {
         {/* Resume Header */}
         <div className="resume">
           <div className="resume-left">
-            <div className="Download-button">Download | Resume</div>
+            <a
+              href="/CarlosResume.pdf"
+              download="CarlosResume.pdf"
+              className="Download-button"
+            >
+              Download | Resume
+            </a>
+
             <h1>My Resume</h1>
           </div>
         </div>
