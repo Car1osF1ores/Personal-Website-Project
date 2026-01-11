@@ -1,44 +1,9 @@
+/* ============================================ */
+/* BASE STYLES */
+/* ============================================ */
+
 body {
   font-family: "Roboto", sans-serif;
-}
-/*DIV Border STYLES*/
-
-/*SECTION STYLES*/
-
-.section-one {
-  padding: 0px;
-  margin: 0px;
-  background: linear-gradient(to right, #6a8f6b 10%, transparent 100%),
-    url("../../public/assets/images/PersonalPhotoTest.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  height: 100vh;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-.section-two {
-  background: linear-gradient(to right, #6a8f6b33 10%, transparent 100%),
-    url("../../public/assets/images/nature.jpg");
-  padding: 0px;
-  margin: 0px;
-  color: black;
-  height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 1000;
-  width: 100%;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
-.section-one nav {
-  position: sticky;
-  top: 0;
-  z-index: 2000;
 }
 
 html,
@@ -50,19 +15,63 @@ body {
   width: 100%;
 }
 
-/*ARTICLE CONTENT STYLE*/
+/* ============================================ */
+/* SECTION STYLES */
+/* ============================================ */
 
-.fany-word {
-  font-weight: bold;
-  font-size: 3rem;
-  font-family: "font-family: Poppins";
+.section-one {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to right, #6a8f6b 10%, transparent 100%),
+    url("../../public/assets/images/PersonalPhotoTest.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
+
+.section-one nav {
+  position: relative;
+  top: 0;
+  z-index: 2000;
+}
+
+.section-two {
+  background: linear-gradient(to right, #6a8f6b33 10%, transparent 100%),
+    url("../../public/assets/images/nature.jpg");
+  padding: 0;
+  margin: 0;
+  color: black;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 2001;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* ============================================ */
+/* ARTICLE CONTENT STYLES */
+/* ============================================ */
 
 article {
   display: flex;
   flex-direction: row;
   max-width: 100%;
   box-sizing: border-box;
+}
+
+article div {
+  flex: 1;
+  margin: 20px;
+  padding: 20px;
 }
 
 article h1 {
@@ -73,15 +82,15 @@ article h1 {
   overflow-wrap: break-word;
 }
 
-article div {
-  flex: 1;
-  margin: 20px;
-  padding: 20px;
-}
-
 article p {
   font-size: 1.2rem;
   color: #dde7dd;
+}
+
+.fany-word {
+  font-weight: bold;
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
 }
 
 .image-container img {
@@ -89,7 +98,9 @@ article p {
   height: auto;
 }
 
-/*DESCRIPTION AND RESUME SECTION*/
+/* ============================================ */
+/* RESUME SECTION */
+/* ============================================ */
 
 .about-me-header {
   display: flex;
@@ -99,12 +110,13 @@ article p {
 
 .resume {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   gap: 40px;
   padding: 20px;
   width: 100%;
   box-sizing: border-box;
+  color: #dde7dd;
 }
 
 .resume-left {
@@ -121,92 +133,6 @@ article p {
   -webkit-backdrop-filter: blur(12px);
 }
 
-.resume-right {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  flex-wrap: wrap;
-  padding: 20px;
-  border-radius: 30px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: all 0.3s ease;
-  max-width: 800px; /* Adjust this value to your preferred width */
-  margin: 20px auto; /* Centers the element */
-  width: 100%; /* Allows it to shrink on smaller screens */
-}
-
-.resume-right:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transform: translateY(-5px) scale(1.02);
-}
-
-.resume-right img {
-  width: 50px;
-  height: auto;
-  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 12px;
-}
-
-.resume-right img:hover {
-  transform: scale(1.2);
-  filter: brightness(1.2);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-}
-
-.description-resume-container div {
-  flex: 1;
-  margin: 20px;
-  padding: 20px;
-}
-
-.description-resume-container {
-  color: #dde7dd;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.info-card {
-  border-radius: 40px;
-  padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 20px;
-}
-
-.info-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-}
-
-.info-card h2,
-p {
-  color: #dde7dd;
-  margin-bottom: 10px;
-}
-
-.resume {
-  color: #dde7dd;
-  display: flex;
-  justify-content: left;
-  gap: 40px;
-}
 .Resume {
   width: 50%;
   height: auto;
@@ -219,15 +145,14 @@ p {
   background: linear-gradient(135deg, #4caf50, #2e8b57);
   color: #dde7dd;
   border: none;
-  border-radius: 100px;
+  border-radius: 50px;
   padding: 10px 20px;
   font-size: 1.2rem;
-  border-radius: 50px;
-  transition: background-color 0.3s ease, color 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   width: fit-content;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .Download-button:hover {
@@ -237,42 +162,57 @@ p {
   color: #fff;
 }
 
-/*Animations*/
+/* ============================================ */
+/* DESCRIPTION & INFO CARDS */
+/* ============================================ */
 
-@keyframes slideInRight {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+.description-resume-container {
+  color: #dde7dd;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-@keyframes slideInDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.description-resume-container div {
+  flex: 1;
+  margin: 20px;
+  padding: 20px;
 }
 
-.slide-in-right-left {
-  display: inline-block;
-  animation: slideInRight 1.2s ease-out forwards;
+.info-cards-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.slide-in-top-bottom {
-  display: inline-block;
-  animation: slideInDown 1.2s ease-out forwards;
+.info-card {
+  border-radius: 40px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
-/*Scroll Button*/
+
+.info-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.info-card h2,
+.info-card p {
+  color: #dde7dd;
+  margin-bottom: 10px;
+}
+
+/* ============================================ */
+/* SCROLL BUTTON */
+/* ============================================ */
+
 .scroll-down-btn {
   position: absolute;
   bottom: 40px;
@@ -302,6 +242,32 @@ p {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* ============================================ */
+/* ANIMATIONS */
+/* ============================================ */
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 @keyframes bounce {
   0%,
   20%,
@@ -318,13 +284,21 @@ p {
   }
 }
 
+.slide-in-right-left {
+  display: inline-block;
+  animation: slideInRight 1.2s ease-out forwards;
+}
+
+.slide-in-top-bottom {
+  display: inline-block;
+  animation: slideInDown 1.2s ease-out forwards;
+}
+
 /* ============================================ */
-/* MOBILE RESPONSIVE STYLES */
+/* MOBILE RESPONSIVE - 480px and below */
 /* ============================================ */
 
-/* Mobile - 480px and below */
 @media (max-width: 480px) {
-  /* Section adjustments */
   .section-one,
   .section-two {
     height: auto;
@@ -332,20 +306,19 @@ p {
     background-attachment: scroll;
   }
 
-  /* Article layout */
   article {
     flex-direction: column;
+    padding: 10px;
+  }
+
+  article div {
+    margin: 10px;
     padding: 10px;
   }
 
   article h1 {
     font-size: 1.5rem;
     letter-spacing: 0.5px;
-  }
-
-  article div {
-    margin: 10px;
-    padding: 10px;
   }
 
   article p {
@@ -356,7 +329,6 @@ p {
     font-size: 1.8rem;
   }
 
-  /* Resume section */
   .resume {
     flex-direction: column;
     gap: 20px;
@@ -369,11 +341,6 @@ p {
     width: 100%;
   }
 
-  .about-me-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   .resume-right {
     flex-wrap: wrap;
     padding: 10px 8px;
@@ -381,15 +348,15 @@ p {
     margin: 20px auto;
     gap: 8px;
   }
-  .about-me-header {
-    align-items: center;
-  }
 
   .resume-right img {
     width: 30px;
   }
 
-  /* Download button */
+  .about-me-header {
+    align-items: center;
+  }
+
   .Download-button {
     width: fit-content;
     margin: 10px auto;
@@ -397,7 +364,6 @@ p {
     font-size: 1rem;
   }
 
-  /* Description container */
   .description-resume-container {
     flex-direction: column;
     height: auto;
@@ -409,7 +375,6 @@ p {
     padding: 15px;
   }
 
-  /* Info cards */
   .info-card {
     border-radius: 20px;
     padding: 15px;
@@ -423,23 +388,23 @@ p {
     font-size: 0.95rem;
   }
 
-  /* Image container */
   .image-container img {
     width: 100%;
     max-width: 300px;
   }
 }
 
-/* Tablet - 481px to 768px */
+/* ============================================ */
+/* TABLET - 481px to 768px */
+/* ============================================ */
+
 @media (min-width: 481px) and (max-width: 768px) {
-  /* Section adjustments */
   .section-one,
   .section-two {
     height: auto;
     min-height: 100vh;
   }
 
-  /* Article layout */
   article {
     flex-direction: column;
   }
@@ -456,7 +421,6 @@ p {
     font-size: 2.3rem;
   }
 
-  /* Resume section */
   .resume {
     flex-direction: column;
     gap: 25px;
@@ -473,25 +437,25 @@ p {
     max-width: 90%;
   }
 
-  /* Description container */
   .description-resume-container {
     flex-direction: column;
     height: auto;
   }
 
-  /* Info cards */
   .info-card {
     padding: 18px;
   }
 
-  /* Image container */
   .image-container img {
     width: 100%;
     max-width: 400px;
   }
 }
 
-/* Small Desktop - 769px to 1024px */
+/* ============================================ */
+/* SMALL DESKTOP - 769px to 1024px */
+/* ============================================ */
+
 @media (min-width: 769px) and (max-width: 1024px) {
   article h1 {
     font-size: 2.2rem;
@@ -512,5 +476,47 @@ p {
 
   .image-container img {
     width: 450px;
+  }
+}
+
+/* ============================================ */
+/* LARGE SCREENS - 27-inch (2560px+) */
+/* ============================================ */
+
+@media (min-width: 2560px) {
+  .info-card {
+    border-radius: 50px;
+    padding: 40px;
+    font-size: 1.2em;
+  }
+
+  .info-card h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+
+  .info-card p {
+    font-size: 1.3em;
+    line-height: 1.8;
+  }
+}
+
+/* ============================================ */
+/* EXTRA LARGE SCREENS - 32-inch+ (3840px+) */
+/* ============================================ */
+
+@media (min-width: 3840px) {
+  .info-card {
+    border-radius: 60px;
+    padding: 60px;
+    font-size: 1.5em;
+  }
+
+  .info-card h2 {
+    font-size: 3em;
+  }
+
+  .info-card p {
+    font-size: 1.5em;
   }
 }
