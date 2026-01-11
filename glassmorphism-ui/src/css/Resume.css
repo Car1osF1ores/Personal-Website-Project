@@ -1,0 +1,18 @@
+.resume-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.Resume {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.Resume:hover {
+  transform: scale(1.02);
+}

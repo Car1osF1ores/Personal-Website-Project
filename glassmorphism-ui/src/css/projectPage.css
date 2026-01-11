@@ -27,7 +27,7 @@ body {
       rgba(106, 143, 107, 0.9) 10%,
       rgba(0, 0, 0, 0.4) 100%
     ),
-    url("C:\Users\C2005\OneDrive\Desktop\Personal-Website-Project\glassmorphism-ui\public\assets\images\treeForest.jpg");
+    url("../../public/assets/images/treeForest.jpg");
 
   background-size: cover;
   background-position: center;

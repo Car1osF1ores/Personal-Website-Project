@@ -2,7 +2,7 @@
 body {
   font-family: "Roboto", sans-serif;
   background: linear-gradient(to right, #6a8f6b 10%, transparent 100%),
-    url("C:\Users\C2005\OneDrive\Desktop\Personal-Website-Project\glassmorphism-ui\public\assets\images\PersonalPhotoTest.jpg");
+    url("../../public/assets/images/PersonalPhotoTest.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

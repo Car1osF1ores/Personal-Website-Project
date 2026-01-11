@@ -1,6 +1,7 @@
 import "../css/aboutMePage.css"; // Import your CSS file
 import "../css/Navbar.css"; // Import Navbar CSS
 import Navbar from "../components/Navbar.js";
+import Resume from "../components/Resume.js";
 function AboutPage() {
   //Logic for scroll button
   const scrollToSection = () => {
@@ -64,11 +65,7 @@ function AboutPage() {
         <div className="description-resume-container">
           <div className="about-me-header">
             <h1>About Me</h1>
-            <img
-              className="Resume"
-              src="/assets/images/DemoResume.png"
-              alt="Resume"
-            />
+            <Resume />
           </div>
 
           <div className="info-cards-container">
