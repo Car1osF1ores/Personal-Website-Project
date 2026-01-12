@@ -211,6 +211,20 @@ article p {
   margin-bottom: 10px;
 }
 
+.info-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  margin: 0;
+  padding: 0;
+  flex: 1; /* Add this to match the other card */
+}
+
+.info-card-link:hover .info-card {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
 /* ============================================ */
 /* SCROLL BUTTON */
 /* ============================================ */
@@ -366,8 +380,9 @@ article p {
   }
 
   .description-resume-container div {
-    margin: 10px;
-    padding: 15px;
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
   }
 
   .info-card {

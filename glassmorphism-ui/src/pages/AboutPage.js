@@ -3,6 +3,7 @@ import "../css/Navbar.css";
 import Navbar from "../components/Navbar.js";
 import Resume from "../components/Resume.js";
 import Icons from "../components/Icons.js";
+import { Link } from "react-router-dom";
 
 function AboutPage() {
   const scrollToSection = () => {
@@ -83,15 +84,18 @@ function AboutPage() {
               </p>
             </div>
 
-            <div className="info-card">
-              <h2>Projects</h2>
-              <p>
-                This is a test paragraph for my resume section Lorem, ipsum
-                dolor sit amet consectetur adipisicing elit. Impedit velit sunt
-                qui quia libero nam magnam suscipit, expedita quisquam dolorem
-                nobis officia eaque inventore corrupti? A quam amet sunt ullam.
-              </p>
-            </div>
+            <Link to="/projects" className="info-card-link">
+              <div className="info-card">
+                <h2>Projects</h2>
+                <p>
+                  This is a test paragraph for my resume section Lorem, ipsum
+                  dolor sit amet consectetur adipisicing elit. Impedit velit
+                  sunt qui quia libero nam magnam suscipit, expedita quisquam
+                  dolorem nobis officia eaque inventore corrupti? A quam amet
+                  sunt ullam.
+                </p>
+              </div>
+            </Link>
           </div>
         </div>
       </section>

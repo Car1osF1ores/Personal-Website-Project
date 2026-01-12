@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Icons from "../components/Icons";
+
 // Inline styles for glassmorphism
 const styles = `
 * { box-sizing: border-box; }
@@ -201,82 +202,12 @@ const styles = `
 .no-projects { text-align: center; padding: 5rem 0; }
 
 .no-projects p { color: rgba(255, 255, 255, 0.8); font-size: 1.125rem; }
+
 `;
 
-// Sample project data - replace with your actual data
-const projects = [
-  {
-    id: 1,
-    title: "E-Commerce Platform",
-    description:
-      "Full-stack shopping platform with payment integration and admin dashboard",
-    framework: "React",
-    tech: ["React", "Node.js", "MongoDB", "Stripe"],
-    image:
-      "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop",
-    github: "https://github.com",
-    demo: "https://demo.com",
-  },
-  {
-    id: 2,
-    title: "Task Management App",
-    description:
-      "Collaborative task manager with real-time updates and team features",
-    framework: "React",
-    tech: ["React", "Firebase", "Tailwind"],
-    image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
-    github: "https://github.com",
-    demo: "https://demo.com",
-  },
-  {
-    id: 3,
-    title: "Portfolio Website",
-    description:
-      "Modern portfolio with smooth animations and responsive design",
-    framework: "Next.js",
-    tech: ["Next.js", "TypeScript", "Framer Motion"],
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    github: "https://github.com",
-    demo: "https://demo.com",
-  },
-  {
-    id: 4,
-    title: "Blog Platform",
-    description: "SEO-optimized blog with markdown support and analytics",
-    framework: "Next.js",
-    tech: ["Next.js", "MDX", "Vercel"],
-    image:
-      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=600&fit=crop",
-    github: "https://github.com",
-    demo: "https://demo.com",
-  },
-  {
-    id: 5,
-    title: "Weather Dashboard",
-    description: "Real-time weather app with location tracking and forecasts",
-    framework: "Vue",
-    tech: ["Vue 3", "Composition API", "OpenWeather API"],
-    image:
-      "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop",
-    github: "https://github.com",
-    demo: "https://demo.com",
-  },
-  {
-    id: 6,
-    title: "Chat Application",
-    description: "Real-time messaging app with user authentication",
-    framework: "Angular",
-    tech: ["Angular", "Socket.io", "Express"],
-    image:
-      "https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=800&h=600&fit=crop",
-    github: "https://github.com",
-    demo: "https://demo.com",
-  },
-];
+// REAL PROJECT DATA
 
-const projects2 = [
+const projects = [
   {
     id: 1,
     title: "Microservices E-Commerce Platform",
@@ -363,6 +294,17 @@ const projects2 = [
       "Built multiple small demo applications across web and mobile platforms, including news apps using APIs and calculator apps in multiple programming languages.",
     framework: "Multi-Platform",
     tech: ["React", "Java", "C#", "Kotlin", "Flutter", "REST APIs"],
+    image: "",
+    github: "",
+    demo: "",
+  },
+  {
+    id: 7,
+    title: "Chat Demo Application",
+    description:
+      "Built a chat demo application across web demonstrating real-time messaging and user authentication features using various technologies.",
+    framework: "ASP.NET",
+    tech: ["C#", "REST APIs", "SignalR", "Bootstrap", "HTML", "CSS"],
     image: "",
     github: "",
     demo: "",
