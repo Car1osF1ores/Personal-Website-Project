@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
-import Icons from "../components/Icons";
 
 // Inline styles for glassmorphism
 const styles = `
@@ -305,6 +304,17 @@ const projects = [
       "Built a chat demo application across web demonstrating real-time messaging and user authentication features using various technologies.",
     framework: "ASP.NET",
     tech: ["C#", "REST APIs", "SignalR", "Bootstrap", "HTML", "CSS"],
+    image: "",
+    github: "",
+    demo: "",
+  },
+  {
+    id: 8,
+    title: "GTA 6 HTML static site",
+    description:
+      "Built a static HTML site showcasing GTA 6 Demo, utilizing Bootstrap for responsive design and CSS for styling to create an engaging user experience.",
+    framework: "Static Web",
+    tech: ["HTML", "CSS"],
     image: "",
     github: "",
     demo: "",
