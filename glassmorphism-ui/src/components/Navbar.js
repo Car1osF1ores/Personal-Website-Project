@@ -49,9 +49,9 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <a href="/contact" onClick={closeMenu}>
+          <Link to="/contact" onClick={closeMenu}>
             Contact Me
-          </a>
+          </Link>
         </li>
       </ul>
 

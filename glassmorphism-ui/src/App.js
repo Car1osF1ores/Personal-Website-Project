@@ -1,17 +1,23 @@
-import { Routes, Route, Link } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-import ProjectPage from "./pages/ProjectPage";
-import ContactMePage from "./pages/ContactMePage";
+import { Routes, Route, Navigate } from "react-router-dom";
+import MainPage from "./pages/MainPage";
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/projects" element={<ProjectPage />} />
-        <Route path="/contact" element={<ContactMePage />} />
+        <Route path="/" element={<MainPage />} />
+        <Route
+          path="/about"
+          element={<Navigate to={{ pathname: "/", hash: "about" }} replace />}
+        />
+        <Route
+          path="/projects"
+          element={<Navigate to={{ pathname: "/", hash: "projects" }} replace />}
+        />
+        <Route
+          path="/contact"
+          element={<Navigate to={{ pathname: "/", hash: "contact" }} replace />}
+        />
       </Routes>
     </div>
   );

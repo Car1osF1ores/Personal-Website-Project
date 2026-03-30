@@ -6,10 +6,10 @@ import "../css/contactMePage.css";
 import { FaEnvelope } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa";
 
-function ContactMePage() {
+function ContactMePage({ hideNavbar = false }) {
   return (
-    <div className="contact-me-page">
-      <Navbar />
+    <div className="contact-me-page" id="contact">
+      {!hideNavbar && <Navbar />}
 
       <div className="contact-content">
         <div className="get-in-touch">

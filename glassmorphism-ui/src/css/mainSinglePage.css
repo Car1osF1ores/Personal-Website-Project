@@ -1,0 +1,141 @@
+/* ── Video Background ─────────────────────────────────────── */
+
+.main-single-page {
+  position: relative;
+}
+
+.main-single-page .video-bg-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.main-single-page .video-bg-wrapper video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Dark overlay dimming the video */
+.main-single-page .video-bg-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55); /* adjust opacity to taste */
+  z-index: 1;
+}
+
+/* Single-page layout: one document scroll, no nested scroll regions */
+.main-single-page .section-two {
+  overflow-y: visible;
+}
+
+/* Full-viewport home hero: replaces navbar padding + fixed article height */
+.main-single-page .homepage-container {
+  overflow: visible;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: clamp(1.5rem, 4vh, 3rem);
+  padding-bottom: clamp(1.5rem, 4vh, 3rem);
+  padding-left: clamp(1.5rem, 5vw, 4rem);
+  padding-right: clamp(1.5rem, 5vw, 4rem);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.main-single-page .homepage-container article {
+  height: auto;
+  min-height: 0;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+.main-single-page .homepage-container .left-article {
+  width: 100%;
+  max-width: 42rem;
+}
+
+/* aboutMePage.css sets article div { flex: 1 } globally — collapse empty column so copy stays left */
+.main-single-page .homepage-container article > div:first-child {
+  flex: 0 1 auto;
+}
+
+.main-single-page .homepage-container article > div:empty {
+  flex: 0 0 0;
+  width: 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.main-single-page .section-one,
+.main-single-page .section-two {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Projects: at least full viewport; content can extend below */
+.main-single-page .projects-page.embedded {
+  min-height: 100vh;
+  min-height: 100dvh;
+  box-sizing: border-box;
+}
+
+/* Contact: full screen without navbar offset; allow scroll if needed */
+.main-single-page .contact-me-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: auto;
+  overflow: visible;
+  justify-content: center;
+}
+
+.main-single-page .contact-content {
+  margin-top: 0;
+  padding-top: clamp(1rem, 3vh, 2rem);
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+/* Fixed Navbar (single instance in MainPage) — match Navbar.css max-width: 768px */
+.main-single-page--mobile-nav .homepage-container {
+  padding-top: clamp(5.5rem, 22vw, 8.5rem);
+}
+
+.main-single-page--mobile-nav .section-one {
+  padding-top: clamp(4.5rem, 16vw, 6rem);
+  box-sizing: border-box;
+}
+
+.main-single-page--mobile-nav .contact-content {
+  margin-top: clamp(3.5rem, 12vw, 6rem);
+  padding-top: clamp(0.5rem, 2vh, 1rem);
+}
+
+/* Anchor scroll lands below fixed nav */
+@media (max-width: 768px) {
+  html:has(.main-single-page--mobile-nav) {
+    scroll-padding-top: clamp(5rem, 18vw, 7.5rem);
+  }
+}

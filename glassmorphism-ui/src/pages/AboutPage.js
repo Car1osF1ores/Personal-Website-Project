@@ -3,20 +3,18 @@ import "../css/Navbar.css";
 import Navbar from "../components/Navbar.js";
 import Resume from "../components/Resume.js";
 import Icons from "../components/Icons.js";
-import { Link } from "react-router-dom";
-
-function AboutPage() {
+function AboutPage({ hideNavbar = false }) {
   const scrollToSection = () => {
-    document.querySelector(".section-two").scrollIntoView({
+    document.querySelector(".section-two")?.scrollIntoView({
       behavior: "smooth",
     });
   };
 
   return (
-    <div>
+    <div id="about">
       {/* Hero Section */}
       <section className="section-one">
-        <Navbar />
+        {!hideNavbar && <Navbar />}
 
         {/* Tech Stack Icons */}
         <Icons />
@@ -84,7 +82,7 @@ function AboutPage() {
               </p>
             </div>
 
-            <Link to="/projects" className="info-card-link">
+            <a href="#projects" className="info-card-link">
               <div className="info-card">
                 <h2>Projects</h2>
                 <p>
@@ -95,7 +93,7 @@ function AboutPage() {
                   sunt ullam.
                 </p>
               </div>
-            </Link>
+            </a>
           </div>
         </div>
       </section>

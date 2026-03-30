@@ -1,13 +1,12 @@
-import { Link } from "react-router-dom";
 import "../css/homePage.css"; // Import your CSS file
 import "../css/Navbar.css"; // Import Navbar CSS
 import Navbar from "../components/Navbar.js";
 import Icons from "../components/Icons.js";
 
-function HomePage() {
+function HomePage({ hideNavbar = false }) {
   return (
     <div className="homepage-container">
-      <Navbar />
+      {!hideNavbar && <Navbar />}
 
       <article>
         <div className="left-article">
@@ -32,9 +31,9 @@ function HomePage() {
 
           <div>
             <h3 className="slide-in-bottom-top">
-              <Link to="/about" className="about-me-button-homepage">
+              <a href="#about" className="about-me-button-homepage">
                 About Me & Experience | Resume
-              </Link>
+              </a>
             </h3>
           </div>
         </div>

@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Navbar from "../components/Navbar";
+
+const INTERVAL = 3500;
 
 // Inline styles for glassmorphism
 const styles = `
@@ -7,7 +9,9 @@ const styles = `
 
 .projects-page { min-height: 100vh; padding: 2rem 0; padding-top: 13rem; }
 
-.container { max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
+.projects-page.embedded { padding-top: 2rem; }
+
+.container { max-width: 900px; margin: 0 auto; padding: 0 1rem; }
 
 .projects-header { 
   background: rgba(255, 255, 255, 0.1); 
@@ -70,32 +74,118 @@ const styles = `
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
 }
 
-.projects-main { padding: 0; }
+/* ── Carousel stage ── */
 
-.framework-section { margin-bottom: 4rem; }
-
-.framework-title { 
-  font-size: 1.5rem; 
-  font-weight: bold; 
-  color: #fff; 
-  margin-bottom: 1.5rem; 
-  display: flex; 
-  align-items: center; 
-  gap: 0.5rem; 
+.carousel-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.title-bar { 
-  width: 4px; 
-  height: 2rem; 
-  background: rgba(255, 255, 255, 0.6); 
-  border-radius: 2px; 
+.card-wrapper {
+  width: 100%;
+  max-width: 640px;
 }
 
-.projects-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+/* ── Progress bar ── */
 
-@media (min-width: 768px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+.progress-bar-wrap {
+  width: 100%;
+  max-width: 640px;
+  margin-top: 0.75rem;
+  height: 3px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 3px;
+  overflow: hidden;
+}
 
-@media (min-width: 1024px) { .projects-grid { grid-template-columns: repeat(3, 1fr); } }
+.progress-bar-fill {
+  height: 100%;
+  background: rgba(255,255,255,0.7);
+  border-radius: 3px;
+  transition: none;
+}
+
+/* ── Controls ── */
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.ctrl-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: background 0.2s, transform 0.2s;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.ctrl-btn:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
+
+.dots-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 300px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.dot.active {
+  background: rgba(255,255,255,0.9);
+  transform: scale(1.4);
+}
+
+.pause-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: background 0.2s;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.pause-btn:hover { background: rgba(255,255,255,0.25); }
+
+.card-counter {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.85rem;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* ── Project card ── */
 
 .project-card { 
   background: rgba(255, 255, 255, 0.1); 
@@ -105,15 +195,19 @@ const styles = `
   border-radius: 0.75rem; 
   overflow: hidden; 
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); 
-  transition: all 0.3s; 
   display: flex; 
-  flex-direction: column; 
+  flex-direction: column;
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-.project-card:hover { 
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2); 
-  transform: translateY(-5px);
-  border-color: rgba(255, 255, 255, 0.3);
+.project-card.fade-out {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.project-card.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .project-image { position: relative; height: 12rem; overflow: hidden; background: rgba(0, 0, 0, 0.2); }
@@ -121,6 +215,20 @@ const styles = `
 .project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
 
 .project-card:hover .project-image img { transform: scale(1.05); }
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.2);
+}
+
+.image-placeholder-icon {
+  font-size: 3rem;
+  opacity: 0.4;
+}
 
 .framework-badge { 
   position: absolute; 
@@ -201,11 +309,9 @@ const styles = `
 .no-projects { text-align: center; padding: 5rem 0; }
 
 .no-projects p { color: rgba(255, 255, 255, 0.8); font-size: 1.125rem; }
-
 `;
 
-// REAL PROJECT DATA
-
+// ── Project data ──────────────────────────────────────────
 const projects = [
   {
     id: 1,
@@ -310,7 +416,7 @@ const projects = [
   },
   {
     id: 8,
-    title: "GTA 6 HTML static site",
+    title: "GTA 6 HTML Static Site",
     description:
       "Built a static HTML site showcasing GTA 6 Demo, utilizing Bootstrap for responsive design and CSS for styling to create an engaging user experience.",
     framework: "Static Web",
@@ -321,7 +427,7 @@ const projects = [
   },
 ];
 
-// Simple SVG Icons
+// ── Icons ─────────────────────────────────────────────────
 const CodeIcon = () => (
   <svg
     className="icon-large"
@@ -360,94 +466,215 @@ const ExternalLinkIcon = () => (
   </svg>
 );
 
-function ProjectsPage() {
+// ── Main page ─────────────────────────────────────────────
+function ProjectsPage({ hideNavbar = false, isMobile = false }) {
   const [selectedFramework, setSelectedFramework] = useState("All");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [visible, setVisible] = useState(true); // controls fade-in / fade-out
+  const [progress, setProgress] = useState(0);
+
+  const intervalRef = useRef(null);
+  const progressRef = useRef(null);
+  const startTimeRef = useRef(null);
 
   const frameworks = ["All", ...new Set(projects.map((p) => p.framework))];
+
   const filteredProjects =
     selectedFramework === "All"
       ? projects
       : projects.filter((p) => p.framework === selectedFramework);
 
-  const groupedProjects = filteredProjects.reduce((acc, project) => {
-    if (!acc[project.framework]) {
-      acc[project.framework] = [];
+  // ── Transition to a new card index ──
+  const goTo = useCallback(
+    (idx, resetTimer = true) => {
+      setVisible(false);
+      setTimeout(() => {
+        setCurrentIndex(
+          (idx + filteredProjects.length) % filteredProjects.length
+        );
+        setVisible(true);
+      }, 350);
+      if (resetTimer) setProgress(0);
+    },
+    [filteredProjects.length]
+  );
+
+  // ── Progress animation ──
+  const animateProgress = useCallback(() => {
+    if (progressRef.current) cancelAnimationFrame(progressRef.current);
+    startTimeRef.current = performance.now();
+    const step = (now) => {
+      const pct = Math.min(
+        ((now - startTimeRef.current) / INTERVAL) * 100,
+        100
+      );
+      setProgress(pct);
+      if (pct < 100) {
+        progressRef.current = requestAnimationFrame(step);
+      }
+    };
+    progressRef.current = requestAnimationFrame(step);
+  }, []);
+
+  // ── Auto-advance timer ──
+  const startTimer = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    animateProgress();
+    intervalRef.current = setInterval(() => {
+      setCurrentIndex((prev) => {
+        const next = (prev + 1) % filteredProjects.length;
+        setVisible(false);
+        setTimeout(() => {
+          setCurrentIndex(next);
+          setVisible(true);
+        }, 350);
+        return prev; // actual update happens in timeout
+      });
+      setProgress(0);
+      animateProgress();
+    }, INTERVAL);
+  }, [filteredProjects.length, animateProgress]);
+
+  // Start / stop on pause toggle
+  useEffect(() => {
+    if (paused) {
+      clearInterval(intervalRef.current);
+      if (progressRef.current) cancelAnimationFrame(progressRef.current);
+    } else {
+      startTimer();
     }
-    acc[project.framework].push(project);
-    return acc;
-  }, {});
+    return () => {
+      clearInterval(intervalRef.current);
+      if (progressRef.current) cancelAnimationFrame(progressRef.current);
+    };
+  }, [paused, startTimer]);
+
+  // Reset when filter changes
+  useEffect(() => {
+    setCurrentIndex(0);
+    setProgress(0);
+    if (!paused) startTimer();
+  }, [selectedFramework]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const handleFilterChange = (fw) => {
+    setSelectedFramework(fw);
+    setCurrentIndex(0);
+  };
+
+  const handleGoTo = (idx) => {
+    goTo(idx);
+    if (!paused) startTimer();
+  };
+
+  const handlePrev = () => handleGoTo(currentIndex - 1);
+  const handleNext = () => handleGoTo(currentIndex + 1);
+
+  const currentProject = filteredProjects[currentIndex] || filteredProjects[0];
 
   return (
     <>
       <style>{styles}</style>
-      <Navbar />
+      {!hideNavbar && <Navbar />}
 
-      <div className="projects-page">
+      <div
+        id="projects"
+        className={`projects-page${hideNavbar && !isMobile ? " embedded" : ""}`}
+      >
         <div className="container">
+          {/* Header */}
           <header className="projects-header">
-            <div className="container">
-              <div className="header-content">
-                <div className="header-icon">
-                  <CodeIcon />
-                </div>
-                <h1>Projects</h1>
+            <div className="header-content">
+              <div className="header-icon">
+                <CodeIcon />
               </div>
-              <p className="header-subtitle">
-                A collection of my development work across different frameworks
-              </p>
+              <h1>Projects</h1>
             </div>
+            <p className="header-subtitle">
+              A collection of my development work across different frameworks
+            </p>
           </header>
 
+          {/* Filter tabs */}
           <div className="filter-tabs">
-            <div className="container">
-              <div className="tabs-wrapper">
-                {frameworks.map((framework) => (
-                  <button
-                    key={framework}
-                    onClick={() => setSelectedFramework(framework)}
-                    className={`tab-button ${
-                      selectedFramework === framework ? "active" : ""
-                    }`}
-                  >
-                    {framework}
-                  </button>
-                ))}
-              </div>
+            <div className="tabs-wrapper">
+              {frameworks.map((framework) => (
+                <button
+                  key={framework}
+                  onClick={() => handleFilterChange(framework)}
+                  className={`tab-button ${
+                    selectedFramework === framework ? "active" : ""
+                  }`}
+                >
+                  {framework}
+                </button>
+              ))}
             </div>
           </div>
 
-          <main className="projects-main">
-            <div className="container">
-              {selectedFramework === "All" ? (
-                Object.entries(groupedProjects).map(
-                  ([framework, frameworkProjects]) => (
-                    <div key={framework} className="framework-section">
-                      <h2 className="framework-title">
-                        <span className="title-bar"></span>
-                        {framework}
-                      </h2>
-                      <div className="projects-grid">
-                        {frameworkProjects.map((project) => (
-                          <ProjectCard key={project.id} project={project} />
-                        ))}
-                      </div>
-                    </div>
-                  )
-                )
-              ) : (
-                <div className="projects-grid">
-                  {filteredProjects.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
-                  ))}
+          {/* Carousel */}
+          <main>
+            {filteredProjects.length === 0 ? (
+              <div className="no-projects">
+                <p>No projects found for this framework.</p>
+              </div>
+            ) : (
+              <div className="carousel-stage">
+                {/* Single card */}
+                <div className="card-wrapper">
+                  <ProjectCard project={currentProject} visible={visible} />
                 </div>
-              )}
 
-              {filteredProjects.length === 0 && (
-                <div className="no-projects">
-                  <p>No projects found for this framework.</p>
+                {/* Progress bar */}
+                <div className="progress-bar-wrap">
+                  <div
+                    className="progress-bar-fill"
+                    style={{ width: `${progress}%` }}
+                  />
                 </div>
-              )}
-            </div>
+
+                {/* Controls */}
+                <div className="carousel-controls">
+                  <button
+                    className="ctrl-btn"
+                    onClick={handlePrev}
+                    aria-label="Previous"
+                  >
+                    &#8592;
+                  </button>
+
+                  <div className="dots-row">
+                    {filteredProjects.map((_, i) => (
+                      <span
+                        key={i}
+                        className={`dot${i === currentIndex ? " active" : ""}`}
+                        onClick={() => handleGoTo(i)}
+                      />
+                    ))}
+                  </div>
+
+                  <button
+                    className="ctrl-btn"
+                    onClick={handleNext}
+                    aria-label="Next"
+                  >
+                    &#8594;
+                  </button>
+
+                  <button
+                    className="pause-btn"
+                    onClick={() => setPaused((p) => !p)}
+                    aria-label={paused ? "Play" : "Pause"}
+                  >
+                    {paused ? "▶" : "⏸"}
+                  </button>
+
+                  <span className="card-counter">
+                    {currentIndex + 1} / {filteredProjects.length}
+                  </span>
+                </div>
+              </div>
+            )}
           </main>
         </div>
       </div>
@@ -455,18 +682,25 @@ function ProjectsPage() {
   );
 }
 
-//--------PROJECT CARD COMPONENT--------//
-function ProjectCard({ project }) {
+// ── Project Card ──────────────────────────────────────────
+function ProjectCard({ project, visible }) {
   return (
-    <div className="project-card">
+    <div className={`project-card ${visible ? "fade-in" : "fade-out"}`}>
+      {/* Image */}
       <div className="project-image">
-        <img src={project.image} alt={project.title} />
+        {project.image ? (
+          <img src={project.image} alt={project.title} />
+        ) : (
+          <div className="image-placeholder">
+            <span className="image-placeholder-icon">💻</span>
+          </div>
+        )}
         <div className="framework-badge">{project.framework}</div>
       </div>
 
+      {/* Content */}
       <div className="project-content">
         <h3 className="project-title">{project.title}</h3>
-        <p className="project-description">{project.description}</p>
 
         <div className="tech-stack">
           {project.tech.map((tech, i) => (
@@ -476,12 +710,14 @@ function ProjectCard({ project }) {
           ))}
         </div>
 
+        <p className="project-description">{project.description}</p>
+
         <div className="project-links">
-          <a href={project.github} className="link-button github-link">
+          <a href={project.github || "#"} className="link-button github-link">
             <GithubIcon />
             Code
           </a>
-          <a href={project.demo} className="link-button demo-link">
+          <a href={project.demo || "#"} className="link-button demo-link">
             <ExternalLinkIcon />
             Demo
           </a>
