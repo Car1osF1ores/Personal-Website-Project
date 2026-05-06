@@ -14,16 +14,15 @@ function Navbar() {
   };
 
   return (
-    <nav>
-      <div className="logo">
+    <nav className="navbar">
+      <div className="navbar__logo">
         <Link to="/" onClick={closeMenu}>
           <img src="/assets/images/CFLogo.png" alt="Logo" />
         </Link>
       </div>
 
-      {/* Hamburger Icon */}
       <button
-        className={`hamburger ${isOpen ? "active" : ""}`}
+        className={`navbar__hamburger ${isOpen ? "active" : ""}`}
         onClick={toggleMenu}
         aria-label="Toggle menu"
       >
@@ -32,7 +31,7 @@ function Navbar() {
         <span></span>
       </button>
 
-      <ul className={`nav-links ${isOpen ? "active" : ""}`}>
+      <ul className={`navbar__links ${isOpen ? "active" : ""}`}>
         <li>
           <Link to="/" onClick={closeMenu}>
             Home
@@ -55,7 +54,7 @@ function Navbar() {
         </li>
       </ul>
 
-      <div className="more-links">
+      <div className="navbar__more">
         <a
           href="https://www.linkedin.com/jobs/"
           target="_blank"

@@ -3,91 +3,68 @@ import Navbar from "../components/Navbar";
 
 const INTERVAL = 3500;
 
-// Inline styles for glassmorphism
 const styles = `
 * { box-sizing: border-box; }
 
 .projects-page { min-height: 100vh; padding: 2rem 0; padding-top: 13rem; }
-
 .projects-page.embedded { padding-top: 2rem; }
 
 .container { max-width: 900px; margin: 0 auto; padding: 0 1rem; }
 
-.projects-header { 
-  background: rgba(255, 255, 255, 0.1); 
+.projects-header {
+  background: rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255,255,255,0.2);
   border-radius: 1rem;
   padding: 2rem;
   margin-bottom: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 
 .header-content { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
-
 .header-icon { color: #fff; }
-
 .projects-header h1 { font-size: 1.875rem; font-weight: bold; color: #fff; margin: 0; }
+.header-subtitle { color: rgba(255,255,255,0.8); margin: 0; }
 
-.header-subtitle { color: rgba(255, 255, 255, 0.8); margin: 0; }
-
-.filter-tabs { 
-  background: rgba(255, 255, 255, 0.1); 
+.filter-tabs {
+  background: rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255,255,255,0.2);
   border-radius: 1rem;
   padding: 1rem;
   margin-bottom: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 
 .tabs-wrapper { display: flex; gap: 0.5rem; overflow-x: auto; scrollbar-width: thin; }
-
 .tabs-wrapper::-webkit-scrollbar { height: 6px; }
+.tabs-wrapper::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 3px; }
 
-.tabs-wrapper::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.3); border-radius: 3px; }
-
-.tab-button { 
-  padding: 0.5rem 1rem; 
-  border-radius: 0.5rem; 
-  font-weight: 500; 
-  border: 1px solid rgba(255, 255, 255, 0.2); 
-  cursor: pointer; 
-  transition: all 0.2s; 
-  white-space: nowrap; 
-  background: rgba(255, 255, 255, 0.1); 
+.tab-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  background: rgba(255,255,255,0.1);
   color: #fff;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 }
-
-.tab-button:hover { 
-  background: rgba(255, 255, 255, 0.2); 
-  transform: translateY(-2px);
+.tab-button:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
+.tab-button.active {
+  background: rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.4);
+  box-shadow: 0 4px 12px rgba(255,255,255,0.2);
 }
 
-.tab-button.active { 
-  background: rgba(255, 255, 255, 0.25); 
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
-}
-
-/* ── Carousel stage ── */
-
-.carousel-stage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.card-wrapper {
-  width: 100%;
-  max-width: 640px;
-}
-
-/* ── Progress bar ── */
+/* Carousel */
+.carousel-stage { display: flex; flex-direction: column; align-items: center; }
+.card-wrapper { width: 100%; max-width: 640px; }
 
 .progress-bar-wrap {
   width: 100%;
@@ -98,7 +75,6 @@ const styles = `
   border-radius: 3px;
   overflow: hidden;
 }
-
 .progress-bar-fill {
   height: 100%;
   background: rgba(255,255,255,0.7);
@@ -106,76 +82,58 @@ const styles = `
   transition: none;
 }
 
-/* ── Controls ── */
-
 .carousel-controls {
   display: flex;
   align-items: center;
   gap: 1rem;
   margin-top: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .ctrl-btn {
-  width: 36px;
-  height: 36px;
+  width: 36px; height: 36px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.3);
   background: rgba(255,255,255,0.1);
   color: #fff;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   font-size: 1rem;
   transition: background 0.2s, transform 0.2s;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 }
-
-.ctrl-btn:hover {
-  background: rgba(255,255,255,0.25);
-  transform: translateY(-2px);
-}
+.ctrl-btn:hover { background: rgba(255,255,255,0.25); transform: translateY(-2px); }
 
 .dots-row {
-  display: flex;
-  gap: 6px;
+  display: flex; gap: 6px;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 300px;
 }
-
 .dot {
-  width: 7px;
-  height: 7px;
+  width: 7px; height: 7px;
   border-radius: 50%;
   background: rgba(255,255,255,0.3);
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
 }
-
-.dot.active {
-  background: rgba(255,255,255,0.9);
-  transform: scale(1.4);
-}
+.dot.active { background: rgba(255,255,255,0.9); transform: scale(1.4); }
 
 .pause-btn {
-  width: 36px;
-  height: 36px;
+  width: 36px; height: 36px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.3);
   background: rgba(255,255,255,0.1);
   color: #fff;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   font-size: 0.8rem;
   transition: background 0.2s;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 }
-
 .pause-btn:hover { background: rgba(255,255,255,0.25); }
 
 .card-counter {
@@ -185,133 +143,247 @@ const styles = `
   text-align: center;
 }
 
-/* ── Project card ── */
-
-.project-card { 
-  background: rgba(255, 255, 255, 0.1); 
+/* Project Card */
+.project-card {
+  background: rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0.75rem; 
-  overflow: hidden; 
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); 
-  display: flex; 
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  display: flex;
   flex-direction: column;
   transition: opacity 0.35s ease, transform 0.35s ease;
+  cursor: pointer;
 }
+.project-card:hover { border-color: rgba(255,255,255,0.4); box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
+.project-card.fade-out { opacity: 0; transform: translateY(10px); }
+.project-card.fade-in { opacity: 1; transform: translateY(0); }
 
-.project-card.fade-out {
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-.project-card.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.project-image { position: relative; height: 12rem; overflow: hidden; background: rgba(0, 0, 0, 0.2); }
-
+.project-image { position: relative; height: 12rem; overflow: hidden; background: rgba(0,0,0,0.2); }
 .project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-
 .project-card:hover .project-image img { transform: scale(1.05); }
 
 .image-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
   background: rgba(0,0,0,0.2);
 }
+.image-placeholder-icon { font-size: 3rem; opacity: 0.4; }
 
-.image-placeholder-icon {
-  font-size: 3rem;
-  opacity: 0.4;
+.click-hint {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.75rem;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.6);
+  background: rgba(0,0,0,0.3);
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+  transition: opacity 0.2s;
 }
+.project-card:hover .click-hint { opacity: 0; }
 
-.framework-badge { 
-  position: absolute; 
-  top: 0.75rem; 
-  right: 0.75rem; 
-  background: rgba(255, 255, 255, 0.2); 
+.framework-badge {
+  position: absolute;
+  top: 0.75rem; right: 0.75rem;
+  background: rgba(255,255,255,0.2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  color: white; 
-  padding: 0.25rem 0.75rem; 
-  border-radius: 9999px; 
-  font-size: 0.875rem; 
-  font-weight: 500; 
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid rgba(255,255,255,0.3);
 }
 
 .project-content { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-
 .project-title { font-size: 1.25rem; font-weight: bold; color: #fff; margin: 0 0 0.5rem 0; }
-
-.project-description { color: rgba(255, 255, 255, 0.8); margin: 0 0 1rem 0; flex: 1; }
+.project-description { color: rgba(255,255,255,0.8); margin: 0 0 1rem 0; flex: 1; }
 
 .tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-
-.tech-tag { 
-  padding: 0.25rem 0.75rem; 
-  background: rgba(255, 255, 255, 0.1); 
-  color: #fff; 
-  border-radius: 0.375rem; 
-  font-size: 0.875rem; 
-  font-weight: 500; 
-  border: 1px solid rgba(255, 255, 255, 0.2);
+.tech-tag {
+  padding: 0.25rem 0.75rem;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
-.project-links { display: flex; gap: 0.75rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.2); }
-
-.link-button { 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  gap: 0.5rem; 
-  padding: 0.5rem 1rem; 
-  border-radius: 0.5rem; 
-  font-weight: 500; 
-  text-decoration: none; 
-  transition: all 0.2s; 
-  flex: 1; 
+.project-links {
+  display: flex; gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+.link-button {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+  flex: 1;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
-
-.github-link { 
-  background: rgba(0, 0, 0, 0.3); 
-  color: white; 
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.github-link:hover { 
-  background: rgba(0, 0, 0, 0.5); 
-  transform: translateY(-2px);
-}
-
-.demo-link { 
-  background: rgba(255, 255, 255, 0.2); 
-  color: white; 
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.demo-link:hover { 
-  background: rgba(255, 255, 255, 0.3); 
-  transform: translateY(-2px);
-}
+.github-link { background: rgba(0,0,0,0.3); color: white; border: 1px solid rgba(255,255,255,0.2); }
+.github-link:hover { background: rgba(0,0,0,0.5); transform: translateY(-2px); }
+.demo-link { background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3); }
+.demo-link:hover { background: rgba(255,255,255,0.3); transform: translateY(-2px); }
 
 .icon-large { width: 2rem; height: 2rem; }
-
 .icon-small { width: 1rem; height: 1rem; }
 
 .no-projects { text-align: center; padding: 5rem 0; }
+.no-projects p { color: rgba(255,255,255,0.8); font-size: 1.125rem; }
 
-.no-projects p { color: rgba(255, 255, 255, 0.8); font-size: 1.125rem; }
+/* ── Modal Lightbox ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: overlayIn 0.25s ease;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-box {
+  background: rgba(20,20,35,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 1.25rem;
+  width: 100%;
+  max-width: 760px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+  animation: modalIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+.modal-box::-webkit-scrollbar { width: 5px; }
+.modal-box::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 3px; }
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.92) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-image {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 1.25rem 1.25rem 0 0;
+  background: rgba(0,0,0,0.3);
+  flex-shrink: 0;
+}
+.modal-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.modal-image-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 5rem;
+  opacity: 0.3;
+}
+.modal-framework-badge {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.25);
+  letter-spacing: 0.03em;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+  backdrop-filter: blur(6px);
+  line-height: 1;
+}
+.modal-close:hover { background: rgba(255,0,0,0.4); transform: scale(1.1); }
+
+.modal-body { padding: 1.75rem; }
+.modal-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.2;
+}
+.modal-description {
+  color: rgba(255,255,255,0.8);
+  line-height: 1.7;
+  margin: 0 0 1.25rem 0;
+  font-size: 1rem;
+}
+.modal-tech-stack {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.modal-tech-tag {
+  padding: 0.3rem 0.85rem;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.9);
+  border-radius: 0.375rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.modal-links {
+  display: flex; gap: 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .projects-page { padding-top: 8rem; }
+  .projects-header { padding: 1.25rem; }
+  .projects-header h1 { font-size: 1.4rem; }
+  .modal-image { height: 200px; }
+  .modal-body { padding: 1.25rem; }
+  .modal-title { font-size: 1.2rem; }
+  .modal-links { flex-direction: column; }
+  .carousel-controls { gap: 0.6rem; }
+  .card-counter { display: none; }
+}
 `;
 
-// ── Project data ──────────────────────────────────────────
 const projects = [
   {
     id: 1,
@@ -347,7 +419,7 @@ const projects = [
       "Bootstrap",
       "GitHub",
     ],
-    image: "",
+    image: "/assets/images/chat-app.png",
     github: "",
     demo: "",
   },
@@ -366,7 +438,7 @@ const projects = [
       "Bootstrap",
       "GitHub",
     ],
-    image: "",
+    image: "/assets/images/equipment-dashboard.png",
     github: "",
     demo: "",
   },
@@ -377,7 +449,7 @@ const projects = [
       "Implemented core features including sound playback and habit tracking using Flutter. Integrated Firebase and SQLite for local and remote data synchronization.",
     framework: "Flutter",
     tech: ["Flutter", "Dart", "Firebase", "SQLite", "GitHub"],
-    image: "",
+    image: "/assets/images/nature.jpg",
     github: "",
     demo: "",
   },
@@ -388,7 +460,7 @@ const projects = [
       "Developed the Car Screen feature and contributed to UX design. Applied design patterns such as Singleton, Factory, and Observer using Jetpack Compose.",
     framework: "Android",
     tech: ["Kotlin", "Jetpack Compose", "Firebase", "SQLite", "Android Studio"],
-    image: "",
+    image: "/assets/images/car-rental.png",
     github: "",
     demo: "",
   },
@@ -399,7 +471,7 @@ const projects = [
       "Built multiple small demo applications across web and mobile platforms, including news apps using APIs and calculator apps in multiple programming languages.",
     framework: "Multi-Platform",
     tech: ["React", "Java", "C#", "Kotlin", "Flutter", "REST APIs"],
-    image: "",
+    image: "/assets/images/treeForest.jpg",
     github: "",
     demo: "",
   },
@@ -410,7 +482,7 @@ const projects = [
       "Built a chat demo application across web demonstrating real-time messaging and user authentication features using various technologies.",
     framework: "ASP.NET",
     tech: ["C#", "REST APIs", "SignalR", "Bootstrap", "HTML", "CSS"],
-    image: "",
+    image: "/assets/images/chat-app.png",
     github: "",
     demo: "",
   },
@@ -421,13 +493,13 @@ const projects = [
       "Built a static HTML site showcasing GTA 6 Demo, utilizing Bootstrap for responsive design and CSS for styling to create an engaging user experience.",
     framework: "Static Web",
     tech: ["HTML", "CSS"],
-    image: "",
+    image: "/assets/images/gta-dashboard.png",
     github: "",
     demo: "",
   },
 ];
 
-// ── Icons ─────────────────────────────────────────────────
+// ── Icons ────────────────────────────────────────────────
 const CodeIcon = () => (
   <svg
     className="icon-large"
@@ -466,26 +538,94 @@ const ExternalLinkIcon = () => (
   </svg>
 );
 
-// ── Main page ─────────────────────────────────────────────
+// ── Modal ─────────────────────────────────────────────────
+function ProjectModal({ project, onClose }) {
+  // Close on Escape key
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handler);
+    // Prevent background scroll
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", handler);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  const stopPropagation = (e) => e.stopPropagation();
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-box" onClick={stopPropagation}>
+        {/* Image section */}
+        <div className="modal-image">
+          {project.image ? (
+            <img src={project.image} alt={project.title} />
+          ) : (
+            <div className="modal-image-placeholder">💻</div>
+          )}
+          <div className="modal-framework-badge">{project.framework}</div>
+          <button className="modal-close" onClick={onClose} aria-label="Close">
+            ✕
+          </button>
+        </div>
+
+        {/* Body */}
+        <div className="modal-body">
+          <h2 className="modal-title">{project.title}</h2>
+          <p className="modal-description">{project.description}</p>
+
+          <div className="modal-tech-stack">
+            {project.tech.map((tech, i) => (
+              <span key={i} className="modal-tech-tag">
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className="modal-links">
+            <a
+              href={project.github || "#"}
+              className="link-button github-link"
+              onClick={(e) => !project.github && e.preventDefault()}
+            >
+              <GithubIcon /> Code
+            </a>
+            <a
+              href={project.demo || "#"}
+              className="link-button demo-link"
+              onClick={(e) => !project.demo && e.preventDefault()}
+            >
+              <ExternalLinkIcon /> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Main Page ─────────────────────────────────────────────
 function ProjectsPage({ hideNavbar = false, isMobile = false }) {
   const [selectedFramework, setSelectedFramework] = useState("All");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [visible, setVisible] = useState(true); // controls fade-in / fade-out
+  const [visible, setVisible] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [modalProject, setModalProject] = useState(null);
 
   const intervalRef = useRef(null);
   const progressRef = useRef(null);
   const startTimeRef = useRef(null);
 
   const frameworks = ["All", ...new Set(projects.map((p) => p.framework))];
-
   const filteredProjects =
     selectedFramework === "All"
       ? projects
       : projects.filter((p) => p.framework === selectedFramework);
 
-  // ── Transition to a new card index ──
   const goTo = useCallback(
     (idx, resetTimer = true) => {
       setVisible(false);
@@ -500,7 +640,6 @@ function ProjectsPage({ hideNavbar = false, isMobile = false }) {
     [filteredProjects.length]
   );
 
-  // ── Progress animation ──
   const animateProgress = useCallback(() => {
     if (progressRef.current) cancelAnimationFrame(progressRef.current);
     startTimeRef.current = performance.now();
@@ -510,14 +649,11 @@ function ProjectsPage({ hideNavbar = false, isMobile = false }) {
         100
       );
       setProgress(pct);
-      if (pct < 100) {
-        progressRef.current = requestAnimationFrame(step);
-      }
+      if (pct < 100) progressRef.current = requestAnimationFrame(step);
     };
     progressRef.current = requestAnimationFrame(step);
   }, []);
 
-  // ── Auto-advance timer ──
   const startTimer = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     animateProgress();
@@ -529,16 +665,15 @@ function ProjectsPage({ hideNavbar = false, isMobile = false }) {
           setCurrentIndex(next);
           setVisible(true);
         }, 350);
-        return prev; // actual update happens in timeout
+        return prev;
       });
       setProgress(0);
       animateProgress();
     }, INTERVAL);
   }, [filteredProjects.length, animateProgress]);
 
-  // Start / stop on pause toggle
   useEffect(() => {
-    if (paused) {
+    if (paused || modalProject) {
       clearInterval(intervalRef.current);
       if (progressRef.current) cancelAnimationFrame(progressRef.current);
     } else {
@@ -548,9 +683,8 @@ function ProjectsPage({ hideNavbar = false, isMobile = false }) {
       clearInterval(intervalRef.current);
       if (progressRef.current) cancelAnimationFrame(progressRef.current);
     };
-  }, [paused, startTimer]);
+  }, [paused, modalProject, startTimer]);
 
-  // Reset when filter changes
   useEffect(() => {
     setCurrentIndex(0);
     setProgress(0);
@@ -561,12 +695,10 @@ function ProjectsPage({ hideNavbar = false, isMobile = false }) {
     setSelectedFramework(fw);
     setCurrentIndex(0);
   };
-
   const handleGoTo = (idx) => {
     goTo(idx);
     if (!paused) startTimer();
   };
-
   const handlePrev = () => handleGoTo(currentIndex - 1);
   const handleNext = () => handleGoTo(currentIndex + 1);
 
@@ -576,6 +708,14 @@ function ProjectsPage({ hideNavbar = false, isMobile = false }) {
     <>
       <style>{styles}</style>
       {!hideNavbar && <Navbar />}
+
+      {/* Modal */}
+      {modalProject && (
+        <ProjectModal
+          project={modalProject}
+          onClose={() => setModalProject(null)}
+        />
+      )}
 
       <div
         id="projects"
@@ -620,12 +760,14 @@ function ProjectsPage({ hideNavbar = false, isMobile = false }) {
               </div>
             ) : (
               <div className="carousel-stage">
-                {/* Single card */}
                 <div className="card-wrapper">
-                  <ProjectCard project={currentProject} visible={visible} />
+                  <ProjectCard
+                    project={currentProject}
+                    visible={visible}
+                    onClick={() => setModalProject(currentProject)}
+                  />
                 </div>
 
-                {/* Progress bar */}
                 <div className="progress-bar-wrap">
                   <div
                     className="progress-bar-fill"
@@ -633,7 +775,6 @@ function ProjectsPage({ hideNavbar = false, isMobile = false }) {
                   />
                 </div>
 
-                {/* Controls */}
                 <div className="carousel-controls">
                   <button
                     className="ctrl-btn"
@@ -683,10 +824,16 @@ function ProjectsPage({ hideNavbar = false, isMobile = false }) {
 }
 
 // ── Project Card ──────────────────────────────────────────
-function ProjectCard({ project, visible }) {
+function ProjectCard({ project, visible, onClick }) {
   return (
-    <div className={`project-card ${visible ? "fade-in" : "fade-out"}`}>
-      {/* Image */}
+    <div
+      className={`project-card ${visible ? "fade-in" : "fade-out"}`}
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => e.key === "Enter" && onClick()}
+      aria-label={`View details for ${project.title}`}
+    >
       <div className="project-image">
         {project.image ? (
           <img src={project.image} alt={project.title} />
@@ -696,12 +843,11 @@ function ProjectCard({ project, visible }) {
           </div>
         )}
         <div className="framework-badge">{project.framework}</div>
+        <span className="click-hint">Click to expand</span>
       </div>
 
-      {/* Content */}
       <div className="project-content">
         <h3 className="project-title">{project.title}</h3>
-
         <div className="tech-stack">
           {project.tech.map((tech, i) => (
             <span key={i} className="tech-tag">
@@ -709,17 +855,27 @@ function ProjectCard({ project, visible }) {
             </span>
           ))}
         </div>
-
         <p className="project-description">{project.description}</p>
-
         <div className="project-links">
-          <a href={project.github || "#"} className="link-button github-link">
-            <GithubIcon />
-            Code
+          <a
+            href={project.github || "#"}
+            className="link-button github-link"
+            onClick={(e) => {
+              e.stopPropagation();
+              if (!project.github) e.preventDefault();
+            }}
+          >
+            <GithubIcon /> Code
           </a>
-          <a href={project.demo || "#"} className="link-button demo-link">
-            <ExternalLinkIcon />
-            Demo
+          <a
+            href={project.demo || "#"}
+            className="link-button demo-link"
+            onClick={(e) => {
+              e.stopPropagation();
+              if (!project.demo) e.preventDefault();
+            }}
+          >
+            <ExternalLinkIcon /> Demo
           </a>
         </div>
       </div>

@@ -1,9 +1,5 @@
-.logo img {
-  width: 90px;
-  height: auto;
-}
-
-nav {
+/* ── Navbar ───────────────────────────────────────────────── */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,7 +20,14 @@ nav {
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.nav-links {
+/* ── Logo ─────────────────────────────────────────────────── */
+.navbar__logo img {
+  width: 90px;
+  height: auto;
+}
+
+/* ── Nav Links ────────────────────────────────────────────── */
+.navbar__links {
   display: flex;
   gap: 80px;
   list-style: none;
@@ -32,38 +35,36 @@ nav {
   margin: 0;
 }
 
-div {
-  border: 1x solid rgb(244, 0, 0);
-}
-
-.nav-links li a {
+.navbar__links li a {
   text-decoration: none;
   color: #dde7dd;
   font-size: large;
 }
 
-.nav-links a:hover {
+.navbar__links a:hover {
   color: #221c42;
 }
-.more-links {
+
+/* ── More Links ───────────────────────────────────────────── */
+.navbar__more {
   display: flex;
   gap: 15px;
   align-items: center;
 }
 
-.more-links a img {
+.navbar__more a img {
   width: 50px;
   height: 50px;
   object-fit: contain;
   transition: transform 0.4s ease;
 }
 
-.more-links a img:hover {
+.navbar__more a img:hover {
   transform: scale(1.2);
 }
 
-/* Hamburger menu - hidden by default */
-.hamburger {
+/* ── Hamburger ────────────────────────────────────────────── */
+.navbar__hamburger {
   display: none;
   flex-direction: column;
   background: none;
@@ -74,7 +75,7 @@ div {
   position: relative;
 }
 
-.hamburger span {
+.navbar__hamburger span {
   width: 30px;
   height: 3px;
   background-color: #ffffff;
@@ -84,40 +85,39 @@ div {
   display: block;
 }
 
-/* Hamburger animation when active */
-.hamburger.active span:nth-child(1) {
+.navbar__hamburger.active span:nth-child(1) {
   transform: rotate(-45deg) translate(-6px, 6px);
 }
 
-.hamburger.active span:nth-child(2) {
+.navbar__hamburger.active span:nth-child(2) {
   opacity: 0;
 }
 
-.hamburger.active span:nth-child(3) {
+.navbar__hamburger.active span:nth-child(3) {
   transform: rotate(45deg) translate(-6px, -6px);
 }
 
-/* Mobile styles */
+/* ── Mobile ───────────────────────────────────────────────── */
 @media screen and (max-width: 768px) {
-  nav {
+  .navbar {
     padding: 20px;
   }
 
-  .hamburger {
+  .navbar__hamburger {
     display: flex;
     order: 2;
   }
 
-  .logo {
+  .navbar__logo {
     order: 1;
   }
 
-  .more-links {
+  .navbar__more {
     order: 3;
     gap: 10px;
   }
 
-  .nav-links {
+  .navbar__links {
     position: fixed;
     left: -100%;
     top: 100px;
@@ -134,51 +134,51 @@ div {
     order: 4;
   }
 
-  .nav-links.active {
+  .navbar__links.active {
     left: 0;
   }
 
-  .nav-links li {
+  .navbar__links li {
     padding: 20px 0;
     width: 100%;
   }
 
-  .nav-links li a {
+  .navbar__links li a {
     display: block;
     font-size: 1.2rem;
     color: #ffffff;
   }
 
-  .more-links a img {
+  .navbar__more a img {
     width: 35px;
     height: 35px;
   }
 
-  .logo img {
+  .navbar__logo img {
     width: 60px;
   }
 }
 
-/* Even smaller screens */
+/* ── Small Screens ────────────────────────────────────────── */
 @media screen and (max-width: 480px) {
-  nav {
+  .navbar {
     padding: 15px;
   }
 
-  .hamburger span {
+  .navbar__hamburger span {
     width: 25px;
   }
 
-  .more-links a img {
+  .navbar__more a img {
     width: 30px;
     height: 30px;
   }
 
-  .logo img {
+  .navbar__logo img {
     width: 50px;
   }
 
-  .nav-links {
+  .navbar__links {
     top: 90px;
   }
 }

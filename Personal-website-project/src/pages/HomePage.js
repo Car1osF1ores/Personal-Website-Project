@@ -1,16 +1,14 @@
-import "../css/homePage.css"; // Import your CSS file
-import "../css/Navbar.css"; // Import Navbar CSS
+import "../css/homePage.css";
 import Navbar from "../components/Navbar.js";
-import Icons from "../components/Icons.js";
 
 function HomePage({ hideNavbar = false }) {
   return (
-    <div className="homepage-container">
+    <section id="home" className="homepage-container">
       {!hideNavbar && <Navbar />}
 
-      <article>
+      <div className="homepage-content">
         <div className="left-article">
-          <div>
+          <div className="hero-text">
             <h1 className="slide-in-right-left">Curiosity. Discipline.</h1>
             <h1
               style={{ fontFamily: "Poppins" }}
@@ -29,18 +27,15 @@ function HomePage({ hideNavbar = false }) {
             </p>
           </div>
 
-          <div>
-            <h3 className="slide-in-bottom-top">
-              <a href="#about" className="about-me-button-homepage">
-                About Me & Experience | Resume
-              </a>
-            </h3>
-          </div>
+          <a
+            href="#about"
+            className="about-me-button-homepage slide-in-bottom-top"
+          >
+            About Me & Experience | Resume
+          </a>
         </div>
-
-        <div></div>
-      </article>
-    </div>
+      </div>
+    </section>
   );
 }
 

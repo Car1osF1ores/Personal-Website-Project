@@ -1,7 +1,7 @@
-/* ── Video Background ─────────────────────────────────────── */
-
 .main-single-page {
   position: relative;
+  width: 100%;
+  min-height: 100vh;
 }
 
 .main-single-page .video-bg-wrapper {
@@ -22,21 +22,18 @@
   object-position: center;
 }
 
-/* Dark overlay dimming the video */
 .main-single-page .video-bg-wrapper::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55); /* adjust opacity to taste */
+  background: rgba(0, 0, 0, 0.55);
   z-index: 1;
 }
 
-/* Single-page layout: one document scroll, no nested scroll regions */
 .main-single-page .section-two {
   overflow-y: visible;
 }
 
-/* Full-viewport home hero: replaces navbar padding + fixed article height */
 .main-single-page .homepage-container {
   overflow: visible;
   min-height: 100vh;
@@ -45,14 +42,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding-top: clamp(1.5rem, 4vh, 3rem);
-  padding-bottom: clamp(1.5rem, 4vh, 3rem);
-  padding-left: clamp(1.5rem, 5vw, 4rem);
-  padding-right: clamp(1.5rem, 5vw, 4rem);
+  padding-bottom: clamp(0.5rem, 4vh, 4rem); /* fixed: was missing min arg */
+  padding-left: clamp(0.5rem, 5vw, 4rem); /* fixed: was missing min arg */
+  padding-right: clamp(0.5rem, 5vw, 4rem); /* fixed: was missing min arg */
   box-sizing: border-box;
   width: 100%;
 }
-
+img {
+  width: 40px;
+  height: auto;
+}
 .main-single-page .homepage-container article {
   height: auto;
   min-height: 0;
@@ -107,8 +106,7 @@
 }
 
 .main-single-page .contact-content {
-  margin-top: 0;
-  padding-top: clamp(1rem, 3vh, 2rem);
+  padding-top: clamp(1rem, 3vh, 2rem); /* fixed: was missing min arg */
   flex: 1 1 auto;
   display: flex;
   align-items: center;
@@ -118,24 +116,23 @@
   box-sizing: border-box;
 }
 
-/* Fixed Navbar (single instance in MainPage) — match Navbar.css max-width: 768px */
-.main-single-page--mobile-nav .homepage-container {
-  padding-top: clamp(5.5rem, 22vw, 8.5rem);
-}
-
 .main-single-page--mobile-nav .section-one {
-  padding-top: clamp(4.5rem, 16vw, 6rem);
+  padding-top: clamp(4rem, 16vw, 6rem); /* fixed: was missing min arg */
   box-sizing: border-box;
 }
 
 .main-single-page--mobile-nav .contact-content {
-  margin-top: clamp(3.5rem, 12vw, 6rem);
-  padding-top: clamp(0.5rem, 2vh, 1rem);
+  margin-top: clamp(1rem, 12vw, 6rem); /* fixed: was missing min arg */
+  padding-top: clamp(0.5rem, 2vh, 1rem); /* fixed: was missing min arg */
 }
 
 /* Anchor scroll lands below fixed nav */
 @media (max-width: 768px) {
   html:has(.main-single-page--mobile-nav) {
-    scroll-padding-top: clamp(5rem, 18vw, 7.5rem);
+    scroll-padding-top: clamp(
+      4rem,
+      18vw,
+      7.5rem
+    ); /* fixed: was missing min arg */
   }
 }

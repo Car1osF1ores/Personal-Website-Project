@@ -1,10 +1,19 @@
-/* ============================================ */
-/* BASE STYLES */
-/* ============================================ */
+/* ============================================
+   CSS CUSTOM PROPERTIES
+   ============================================ */
 
-body {
-  font-family: "Roboto", sans-serif;
+:root {
+  --color-text-light: #dde7dd;
+  --color-glass-bg: rgba(255, 255, 255, 0.2);
+  --color-glass-border: rgba(255, 255, 255, 0.3);
+  --backdrop: blur(12px);
+  --card-radius: 40px;
+  --transition-standard: 0.3s ease;
 }
+
+/* ============================================
+     BASE STYLES
+     ============================================ */
 
 html,
 body {
@@ -15,147 +24,118 @@ body {
   width: 100%;
 }
 
-/* ============================================ */
-/* SECTION STYLES */
-/* ============================================ */
+/* ============================================
+     SECTIONS
+     ============================================ */
 
 .section-one {
-  padding: 0;
-  margin: 0;
-  /*background: linear-gradient(to right, #6a8f6b 10%, transparent 100%),
-    url("../../public/assets/images/PersonalPhotoTest.jpg");*/
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  height: 100vh;
-  width: 100%;
-  overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 .section-one nav {
-  position: relative;
+  position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 2000;
 }
 
 .section-two {
-  /*background: linear-gradient(to right, #6a8f6b33 10%, transparent 100%),
-    url("../../public/assets/images/nature.jpg");*/
-  padding: 0;
-  margin: 0;
-  color: black;
   min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  color: var(--color-text-light);
   z-index: 2001;
-  width: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-/* ============================================ */
-/* ARTICLE CONTENT STYLES */
-/* ============================================ */
-
-article {
-  display: flex;
-  flex-direction: row;
-  max-width: 100%;
+  padding: 60px 0 80px;
   box-sizing: border-box;
-  margin-top: 10rem;
 }
 
-article div {
-  flex: 1;
-  margin: 20px;
-  padding: 20px;
-}
+/* ============================================
+     HERO CONTENT — centered, stacked
+     ============================================ */
 
-article h1 {
-  font-size: clamp(1.5rem, 4vw, 2.8rem);
-  letter-spacing: 1px;
-  color: #dde7dd;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-article p {
-  font-size: clamp(1rem, 1.2vw, 1.4rem);
-  color: #dde7dd;
-}
-
-.fany-word {
-  font-weight: bold;
-  font-size: clamp(2rem, 3vw, 4rem);
-  font-family: "Poppins", sans-serif;
-}
-
-.image-container img {
-  width: 500px;
-  height: auto;
-}
-
-/* ============================================ */
-/* RESUME SECTION */
-/* ============================================ */
-
-.about-me-header {
+.hero-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  max-width: 860px;
+  padding: 0 40px;
+  gap: 12px;
 }
 
-.resume {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 40px;
-  padding: 20px;
-  width: 100%;
-  box-sizing: border-box;
-  color: #dde7dd;
+.hero-eyebrow {
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  opacity: 0.75;
 }
 
-.resume-left {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-  flex: 1;
-  border-radius: 30px;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+.hero-name {
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  letter-spacing: -2px;
+  color: var(--color-text-light);
+  margin: 0;
+  line-height: 1;
 }
 
-.Resume {
-  width: 50%;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.hero-title {
+  margin: 4px 0 0;
+  color: var(--color-text-light);
+}
+
+.fancy-word {
+  font-weight: bold;
+  font-size: clamp(1.1rem, 2vw, 1.8rem);
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+
+.hero-bio {
+  font-size: clamp(0.95rem, 1.1vw, 1.15rem);
+  color: var(--color-text-light);
+  opacity: 0.85;
+  line-height: 1.75;
+  max-width: 640px;
+  margin: 8px 0 16px;
 }
 
 .Download-button {
   display: inline-block;
-  margin: 20px;
+  margin-top: 8px;
+  padding: 12px 28px;
   background: linear-gradient(135deg, #4caf50, #2e8b57);
-  color: #dde7dd;
+  color: var(--color-text-light);
   border: none;
   border-radius: 50px;
-  padding: 10px 20px;
-  font-size: clamp(1rem, 1.2vw, 1.4rem);
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  font-family: inherit;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  width: fit-content;
-  white-space: nowrap;
   cursor: pointer;
   text-decoration: none;
+  white-space: nowrap;
+  transition: transform var(--transition-standard),
+    box-shadow var(--transition-standard), background var(--transition-standard);
 }
 
 .Download-button:hover {
@@ -165,116 +145,162 @@ article p {
   color: #fff;
 }
 
-/* ============================================ */
-/* DESCRIPTION & INFO CARDS */
-/* ============================================ */
+/* ============================================
+     SECTION LABEL
+     ============================================ */
 
-.description-resume-container {
-  color: #dde7dd;
-  height: 100%;
+.section-label {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 20px;
+  align-items: center;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto 40px;
+  padding: 0 60px;
+}
+.resume-col {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label span {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 600;
+  color: var(--color-text-light);
+  letter-spacing: 0.04em;
 }
 
-.description-resume-container div {
+.section-label::after {
+  content: "";
   flex: 1;
-  margin: 20px;
-  padding: 20px;
+  height: 1px;
+  background: var(--color-glass-border);
 }
 
-.info-cards-container {
+/* ============================================
+     ABOUT GRID — resume left, cards right
+     ============================================ */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.about-resume-col {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background: var(--color-glass-bg);
+  backdrop-filter: var(--backdrop);
+  -webkit-backdrop-filter: var(--backdrop);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--card-radius);
+  padding: 30px 24px;
+  box-sizing: border-box;
 }
+
+.about-cards-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ============================================
+     INFO CARDS
+     ============================================ */
 
 .info-card {
-  border-radius: 40px;
-  padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: var(--card-radius);
+  padding: 28px 30px;
+  background: var(--color-glass-bg);
+  backdrop-filter: var(--backdrop);
+  -webkit-backdrop-filter: var(--backdrop);
+  border: 1px solid var(--color-glass-border);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform var(--transition-standard),
+    box-shadow var(--transition-standard);
 }
 
-.info-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+.info-card:hover,
+.info-card-link:hover .info-card {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
 }
 
-.info-card h2,
+.info-card h3,
 .info-card p {
-  color: #dde7dd;
+  color: var(--color-text-light);
   margin-bottom: 10px;
 }
 
-.info-card h2 {
-  font-size: clamp(1.2rem, 1.5vw, 2rem);
+.info-card h3 {
+  font-size: clamp(1.1rem, 1.4vw, 1.6rem);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  margin-top: 0;
 }
 
 .info-card p {
-  font-size: clamp(0.95rem, 1.1vw, 1.4rem);
-  line-height: 1.6;
+  font-size: clamp(0.9rem, 1vw, 1.1rem);
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 0;
 }
 
 .info-card-link {
   text-decoration: none;
   color: inherit;
   display: block;
-  margin: 0;
-  padding: 0;
-  flex: 1;
 }
 
-.info-card-link:hover .info-card {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
-}
-
-/* ============================================ */
-/* SCROLL BUTTON */
-/* ============================================ */
+/* ============================================
+     SCROLL BUTTON
+     ============================================ */
 
 .scroll-down-btn {
   position: absolute;
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  color: #dde7dd;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  font-size: 2rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  animation: bounce 2s infinite;
-  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--color-glass-border);
+  background: var(--color-glass-bg);
+  backdrop-filter: var(--backdrop);
+  -webkit-backdrop-filter: var(--backdrop);
+  color: var(--color-text-light);
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 100;
+  animation: bounce 2s infinite;
+  transition: background var(--transition-standard),
+    box-shadow var(--transition-standard);
 }
 
 .scroll-down-btn:hover {
   background: rgba(255, 255, 255, 0.3);
-  transform: translateX(-50%) scale(1.1);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* ============================================ */
-/* ANIMATIONS */
-/* ============================================ */
+/* ============================================
+     ANIMATIONS
+     ============================================ */
 
 @keyframes slideInRight {
   from {
-    transform: translateX(100%);
+    transform: translateX(60px);
     opacity: 0;
   }
   to {
@@ -285,7 +311,7 @@ article p {
 
 @keyframes slideInDown {
   from {
-    transform: translateY(-100%);
+    transform: translateY(-30px);
     opacity: 0;
   }
   to {
@@ -320,358 +346,174 @@ article p {
   animation: slideInDown 1.2s ease-out forwards;
 }
 
-/* ============================================ */
-/* MOBILE RESPONSIVE - 480px and below */
-/* ============================================ */
+/* Stagger hero children */
+.hero-eyebrow {
+  animation-delay: 0s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+.hero-name {
+  animation-delay: 0.15s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+.hero-title {
+  animation-delay: 0.3s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+.hero-bio {
+  animation-delay: 0.45s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+.Download-button {
+  animation: slideInDown 1.2s 0.6s ease-out forwards;
+  opacity: 0;
+}
 
+/* ============================================
+     RESPONSIVE
+     ============================================ */
+
+/* Mobile: up to 480px */
 @media (max-width: 480px) {
   .section-one,
   .section-two {
-    height: auto;
-    min-height: 100vh;
     background-attachment: scroll;
   }
 
-  article {
-    flex-direction: column;
-    padding: 10px;
+  .hero-content {
+    padding: 0 20px;
+    gap: 10px;
   }
 
-  article div {
-    margin: 10px;
-    padding: 10px;
+  .section-two {
+    padding: 40px 0 60px;
   }
 
-  article h1 {
-    font-size: 1.5rem;
-    letter-spacing: 0.5px;
+  .section-label {
+    padding: 0 24px;
+    margin-bottom: 28px;
   }
 
-  article p {
-    font-size: 1rem;
-  }
-
-  .fany-word {
-    font-size: 1.8rem;
-  }
-
-  .resume {
-    flex-direction: column;
+  .about-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
     gap: 20px;
-    padding: 10px;
-  }
-
-  .resume-left {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-
-  .resume-right {
-    flex-wrap: wrap;
-    padding: 10px 8px;
-    max-width: 95%;
-    margin: 20px auto;
-    gap: 8px;
-  }
-
-  .resume-right img {
-    width: 30px;
-  }
-
-  .about-me-header {
-    align-items: center;
-  }
-
-  .description-resume-container {
-    flex-direction: column;
-    height: auto;
-    gap: 15px;
-  }
-
-  .description-resume-container div {
-    flex: 1;
-    margin: 20px;
-    padding: 20px;
   }
 
   .info-card {
-    border-radius: 20px;
-    padding: 15px;
-  }
-
-  .info-card h2 {
-    font-size: 1.3rem;
-  }
-
-  .info-card p {
-    font-size: 0.95rem;
-  }
-
-  .image-container img {
-    width: 100%;
-    max-width: 300px;
+    border-radius: 24px;
+    padding: 20px;
   }
 }
 
-/* ============================================ */
-/* TABLET - 481px to 768px */
-/* ============================================ */
-
+/* Tablet: 481px – 768px */
 @media (min-width: 481px) and (max-width: 768px) {
   .section-one,
   .section-two {
-    height: auto;
-    min-height: 100vh;
+    background-attachment: scroll;
   }
 
-  article {
-    flex-direction: column;
+  .section-label {
+    padding: 0 32px;
   }
 
-  article h1 {
-    font-size: 2rem;
-  }
-
-  article p {
-    font-size: 1.1rem;
-  }
-
-  .fany-word {
-    font-size: 2.3rem;
-  }
-
-  .resume {
-    flex-direction: column;
-    gap: 25px;
-  }
-
-  .resume-left {
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .resume-right {
-    padding: 18px;
-    max-width: 90%;
-  }
-
-  .description-resume-container {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .info-card {
-    padding: 18px;
-  }
-
-  .image-container img {
-    width: 100%;
-    max-width: 400px;
+  .about-grid {
+    grid-template-columns: 1fr;
+    padding: 0 32px;
+    gap: 24px;
   }
 }
 
-/* ============================================ */
-/* SMALL DESKTOP - 769px to 1024px */
-/* ============================================ */
-
+/* Small desktop: 769px – 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
-  article h1 {
-    font-size: 2.2rem;
+  .about-grid {
+    padding: 0 40px;
+    gap: 24px;
   }
 
-  .fany-word {
-    font-size: 2.6rem;
-  }
-
-  .resume {
-    gap: 30px;
-  }
-
-  .description-resume-container {
-    height: auto;
-    min-height: 550px;
-  }
-
-  .image-container img {
-    width: 450px;
+  .section-label {
+    padding: 0 40px;
   }
 }
 
-/* ============================================ */
-/* LARGE DESKTOP - 1025px to 1440px */
-/* ============================================ */
-
+/* Large desktop: 1025px – 1440px */
 @media (min-width: 1025px) and (max-width: 1440px) {
-  article h1 {
-    font-size: 3rem;
-  }
-
-  article p {
-    font-size: 1.25rem;
-  }
-
-  .fany-word {
-    font-size: 3.2rem;
-  }
-
-  .info-card h2 {
-    font-size: 1.6rem;
-  }
-
-  .info-card p {
-    font-size: 1.1rem;
-  }
-
-  .Download-button {
-    font-size: 1.2rem;
-    padding: 12px 24px;
-  }
-}
-
-/* ============================================ */
-/* XL DESKTOP - 1441px to 1920px */
-/* ============================================ */
-
-@media (min-width: 1441px) and (max-width: 1919px) {
-  article h1 {
-    font-size: 3.5rem;
-  }
-
-  article p {
-    font-size: 1.35rem;
-  }
-
-  .fany-word {
-    font-size: 3.8rem;
-  }
-
-  .info-card h2 {
-    font-size: 1.9rem;
-  }
-
-  .info-card p {
-    font-size: 1.2rem;
-    line-height: 1.7;
-  }
-
-  .Download-button {
-    font-size: 1.3rem;
-    padding: 14px 28px;
-  }
-}
-
-/* ============================================ */
-/* FULL HD / 1080p - 1920px to 2559px */
-/* ============================================ */
-
-@media (min-width: 1920px) and (max-width: 2559px) {
-  article h1 {
-    font-size: 4rem;
-  }
-
-  article p {
+  .info-card h3 {
     font-size: 1.5rem;
   }
-
-  .fany-word {
-    font-size: 4.5rem;
-  }
-
-  .info-card {
-    border-radius: 45px;
-    padding: 28px;
-  }
-
-  .info-card h2 {
-    font-size: 2.1rem;
-    margin-bottom: 14px;
-  }
-
-  .info-card p {
-    font-size: 1.3rem;
-    line-height: 1.75;
-  }
-
   .Download-button {
-    font-size: 1.4rem;
-    padding: 16px 32px;
+    font-size: 1.1rem;
+    padding: 12px 26px;
   }
 }
 
-/* ============================================ */
-/* 27-INCH / 2K - 2560px to 3839px */
-/* ============================================ */
-
-@media (min-width: 2560px) and (max-width: 3839px) {
-  article h1 {
-    font-size: 5rem;
-  }
-
-  article p {
+/* XL desktop: 1441px – 1919px */
+@media (min-width: 1441px) and (max-width: 1919px) {
+  .info-card h3 {
     font-size: 1.8rem;
   }
-
-  .fany-word {
-    font-size: 5.5rem;
+  .info-card p {
+    font-size: 1.15rem;
   }
+  .Download-button {
+    font-size: 1.2rem;
+    padding: 14px 30px;
+  }
+}
 
+/* Full HD: 1920px – 2559px */
+@media (min-width: 1920px) and (max-width: 2559px) {
+  .info-card {
+    border-radius: 45px;
+    padding: 32px;
+  }
+  .info-card h3 {
+    font-size: 2rem;
+  }
+  .info-card p {
+    font-size: 1.25rem;
+  }
+  .Download-button {
+    font-size: 1.35rem;
+    padding: 16px 34px;
+  }
+}
+
+/* 2K: 2560px – 3839px */
+@media (min-width: 2560px) and (max-width: 3839px) {
   .info-card {
     border-radius: 50px;
     padding: 40px;
   }
-
-  .info-card h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+  .info-card h3 {
+    font-size: 2.4rem;
   }
-
   .info-card p {
-    font-size: 1.5rem;
-    line-height: 1.8;
+    font-size: 1.45rem;
   }
-
   .Download-button {
     font-size: 1.6rem;
-    padding: 18px 36px;
+    padding: 18px 38px;
   }
 }
 
-/* ============================================ */
-/* 32-INCH+ / 4K - 3840px and above */
-/* ============================================ */
-
+/* 4K: 3840px+ */
 @media (min-width: 3840px) {
-  article h1 {
-    font-size: 7rem;
-  }
-
-  article p {
-    font-size: 2.2rem;
-  }
-
-  .fany-word {
-    font-size: 7.5rem;
-  }
-
   .info-card {
     border-radius: 60px;
     padding: 60px;
   }
-
-  .info-card h2 {
-    font-size: 3.2rem;
-    margin-bottom: 24px;
+  .info-card h3 {
+    font-size: 3rem;
   }
-
   .info-card p {
-    font-size: 1.9rem;
-    line-height: 1.9;
+    font-size: 1.8rem;
   }
-
   .Download-button {
     font-size: 2rem;
-    padding: 22px 44px;
+    padding: 22px 46px;
   }
 }

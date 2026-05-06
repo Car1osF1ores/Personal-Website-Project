@@ -3,100 +3,109 @@ import "../css/Navbar.css";
 import Navbar from "../components/Navbar.js";
 import Resume from "../components/Resume.js";
 import Icons from "../components/Icons.js";
+
+const INFO_CARDS = [
+  {
+    title: "Work Experience",
+    content:
+      "This is a test paragraph for my resume section Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit velit sunt qui quia libero nam magnam suscipit, expedita quisquam dolorem nobis officia eaque inventore corrupti? A quam amet sunt ullam.",
+    link: null,
+  },
+  {
+    title: "Projects",
+    content:
+      "This is a test paragraph for my resume section Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit velit sunt qui quia libero nam magnam suscipit, expedita quisquam dolorem nobis officia eaque inventore corrupti? A quam amet sunt ullam.",
+    link: "#projects",
+  },
+];
+
+function InfoCard({ title, content, link }) {
+  const card = (
+    <div className="info-card">
+      <h3>{title}</h3>
+      <p>{content}</p>
+    </div>
+  );
+
+  return link ? (
+    <a href={link} className="info-card-link">
+      {card}
+    </a>
+  ) : (
+    card
+  );
+}
+
+function HeroSection({ hideNavbar, onScrollDown }) {
+  return (
+    <section className="section-one">
+      {!hideNavbar && <Navbar />}
+      <Icons />
+
+      {/* Full-width stacked hero — name punches big, bio sits below */}
+      <div className="hero-content">
+        <div className="hero-eyebrow slide-in-top-bottom">Hello, I'm</div>
+        <h1 className="hero-name slide-in-right-left">Carlos</h1>
+        <p className="hero-title slide-in-top-bottom">
+          <span className="fancy-word">Full-Stack Developer</span>
+        </p>
+        <p className="hero-bio slide-in-top-bottom">
+          I've worked on full-stack web applications and RESTful APIs, building
+          backend services, designing responsive frontends, and integrating
+          database-driven systems. My experience includes authentication, CRUD
+          operations, caching, clean architecture, and object-oriented design.
+        </p>
+
+        <a
+          href="/CarlosResume.pdf"
+          download="CarlosResume.pdf"
+          className="Download-button"
+        >
+          Download Resume ↓
+        </a>
+      </div>
+
+      <button className="scroll-down-btn" onClick={onScrollDown}>
+        <span>↓</span>
+      </button>
+    </section>
+  );
+}
+
+function ResumeSection() {
+  return (
+    <section className="section-two">
+      {/* Section label */}
+      <div className="section-label">
+        <span>About Me</span>
+      </div>
+
+      {/* Two-column: resume preview left, info cards right */}
+      <div className="about-grid">
+        <div className="resume-col">
+          <Resume />
+        </div>
+        <div className="about-cards-col">
+          {INFO_CARDS.map((card) => (
+            <InfoCard key={card.title} {...card} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function AboutPage({ hideNavbar = false }) {
   const scrollToSection = () => {
-    document.querySelector(".section-two")?.scrollIntoView({
-      behavior: "smooth",
-    });
+    document
+      .querySelector(".section-two")
+      ?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <div id="about">
-      {/* Hero Section */}
-      <section className="section-one">
-        {!hideNavbar && <Navbar />}
-
-        {/* Tech Stack Icons */}
-        <Icons />
-        {/* Introduction */}
-        <article>
-          <div>
-            <h1 className="slide-in-right-left">
-              Hello! I'm Carlos, A <span className="fany-word">Passionate</span>{" "}
-              Developer With A Love For Creating{" "}
-              <span className="fany-word">Innovative Solutions</span> And
-              <span className="fany-word"> Simplicity</span>
-            </h1>
-          </div>
-          <div>
-            <p className="slide-in-top-bottom">
-              I've worked on full-stack web applications and RESTful APIs,
-              building backend services, designing responsive frontends, and
-              integrating database-driven systems. My experience includes
-              authentication, CRUD operations, caching, clean architecture, and
-              object-oriented design. I focus on writing maintainable code,
-              improving performance, and continuously learning modern
-              technologies to deliver reliable, scalable solutions.
-            </p>
-          </div>
-        </article>
-
-        {/* Scroll Button */}
-        <button className="scroll-down-btn" onClick={scrollToSection}>
-          <span>↓</span>
-        </button>
-      </section>
-
-      {/* Resume Section */}
-      <section className="section-two">
-        {/* Resume Header */}
-        <div className="resume">
-          <div className="resume-left">
-            <a
-              href="/CarlosResume.pdf"
-              download="CarlosResume.pdf"
-              className="Download-button"
-            >
-              Download | Resume
-            </a>
-
-            <h1>My Resume</h1>
-          </div>
-        </div>
-
-        {/* About Me & Info Cards */}
-        <div className="description-resume-container">
-          <div className="about-me-header">
-            <h1>About Me</h1>
-            <Resume />
-          </div>
-
-          <div className="info-cards-container">
-            <div className="info-card">
-              <h2>Work Experience</h2>
-              <p>
-                This is a test paragraph for my resume section Lorem, ipsum
-                dolor sit amet consectetur adipisicing elit. Impedit velit sunt
-                qui quia libero nam magnam suscipit, expedita quisquam dolorem
-                nobis officia eaque inventore corrupti? A quam amet sunt ullam.
-              </p>
-            </div>
-
-            <a href="#projects" className="info-card-link">
-              <div className="info-card">
-                <h2>Projects</h2>
-                <p>
-                  This is a test paragraph for my resume section Lorem, ipsum
-                  dolor sit amet consectetur adipisicing elit. Impedit velit
-                  sunt qui quia libero nam magnam suscipit, expedita quisquam
-                  dolorem nobis officia eaque inventore corrupti? A quam amet
-                  sunt ullam.
-                </p>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
+      <HeroSection hideNavbar={hideNavbar} onScrollDown={scrollToSection} />
+      <ResumeSection />
     </div>
   );
 }

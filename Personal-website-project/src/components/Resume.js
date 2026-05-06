@@ -60,7 +60,6 @@ function Resume() {
               height: "auto",
               objectFit: "contain",
               cursor: "zoom-out",
-              borderRadius: "12px",
               boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
             }}
           />

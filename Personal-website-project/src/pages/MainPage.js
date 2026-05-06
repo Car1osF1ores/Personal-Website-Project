@@ -8,21 +8,40 @@ import AboutPage from "./AboutPage";
 import ProjectsPage from "./ProjectPage";
 import ContactMePage from "./ContactMePage";
 
-/** Matches Navbar.css mobile breakpoint (hamburger + overlay menu) */
 const MOBILE_NAV_QUERY = "(max-width: 768px)";
+const VIDEO_SRC = "../assets/videos/glow-background.mp4";
 
-function MainPage() {
+function useHashScroll() {
   const location = useLocation();
-  const isMobileNav = useMediaQuery(MOBILE_NAV_QUERY);
 
   useEffect(() => {
     const hash = location.hash?.replace(/^#/, "");
     if (!hash) return;
-    const el = document.getElementById(hash);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    document
+      .getElementById(hash)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [location.hash, location.pathname]);
+}
+
+function VideoBg() {
+  return (
+    <div className="video-bg-wrapper">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="/path/to/poster-fallback.jpg"
+      >
+        <source src={VIDEO_SRC} type="video/mp4" />
+      </video>
+    </div>
+  );
+}
+
+function MainPage() {
+  const isMobileNav = useMediaQuery(MOBILE_NAV_QUERY);
+  useHashScroll();
 
   return (
     <main
@@ -30,20 +49,7 @@ function MainPage() {
         isMobileNav ? " main-single-page--mobile-nav" : ""
       }`}
     >
-      {/* ── Video Background ── */}
-      <div className="video-bg-wrapper">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/path/to/poster-fallback.jpg"
-        >
-          <source src="../assets/videos/glow-background.mp4" type="video/mp4" />
-          <source src="../assets/videos/glow-background.mp4" type="video/mp4" />
-        </video>
-      </div>
-
+      <VideoBg />
       {isMobileNav && <Navbar />}
       <HomePage hideNavbar />
       <AboutPage hideNavbar />
