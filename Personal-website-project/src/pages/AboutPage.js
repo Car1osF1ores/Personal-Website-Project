@@ -8,13 +8,13 @@ const INFO_CARDS = [
   {
     title: "Work Experience",
     content:
-      "This is a test paragraph for my resume section Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit velit sunt qui quia libero nam magnam suscipit, expedita quisquam dolorem nobis officia eaque inventore corrupti? A quam amet sunt ullam.",
+      " Spring Boot, React, ASP.NET, Flutter, PostgreSQL, backend development, frontend development, microservices, JWT authentication, real-time notifications, Firebase, SQLite, Docker, RabbitMQ, Git, Agile development, clean architecture, software design patterns, team collaboration",
     link: null,
   },
   {
     title: "Projects",
     content:
-      "This is a test paragraph for my resume section Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit velit sunt qui quia libero nam magnam suscipit, expedita quisquam dolorem nobis officia eaque inventore corrupti? A quam amet sunt ullam.",
+      "Microservice-based moving platform, collaborative task management web application, meditation mobile app, scalable backend systems, real-time notifications, authentication systems, database integration, Flutter mobile features, React frontend development, ASP.NET backend API development, Spring Boot microservices, Firebase synchronization",
     link: "#projects",
   },
 ];
@@ -36,7 +36,7 @@ function InfoCard({ title, content, link }) {
   );
 }
 
-function HeroSection({ hideNavbar, onScrollDown }) {
+function HeroSection({ hideNavbar }) {
   return (
     <section className="section-one">
       {!hideNavbar && <Navbar />}
@@ -64,10 +64,6 @@ function HeroSection({ hideNavbar, onScrollDown }) {
           Download Resume ↓
         </a>
       </div>
-
-      <button className="scroll-down-btn" onClick={onScrollDown}>
-        <span>↓</span>
-      </button>
     </section>
   );
 }
@@ -96,15 +92,9 @@ function ResumeSection() {
 }
 
 function AboutPage({ hideNavbar = false }) {
-  const scrollToSection = () => {
-    document
-      .querySelector(".section-two")
-      ?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <div id="about">
-      <HeroSection hideNavbar={hideNavbar} onScrollDown={scrollToSection} />
+      <HeroSection hideNavbar={hideNavbar} />
       <ResumeSection />
     </div>
   );

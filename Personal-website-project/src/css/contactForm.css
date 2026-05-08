@@ -3,22 +3,24 @@
   border-radius: 16px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 25px 30px; /* reduced padding */
+  padding: 25px 30px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
   color: #fff;
-  max-width: 420px; /* makes it visually compact */
-  min-width: 400px;
+  width: 100%;
+  max-width: 420px;
+  min-width: 0; /* ← removed 400px fixed min-width */
+  box-sizing: border-box;
 }
 
 .contact-container h2 {
-  margin-bottom: 18px; /* tighter heading spacing */
+  margin-bottom: 18px;
   text-align: center;
   font-size: 1.5rem;
   letter-spacing: 0.5px;
 }
 
 .form-group {
-  margin-bottom: 14px; /* less vertical space between fields */
+  margin-bottom: 14px;
 }
 
 label {
@@ -31,12 +33,12 @@ label {
 input,
 textarea {
   width: 100%;
-  padding: 8px 10px; /* smaller input padding */
+  padding: 8px 10px;
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
-  font-size: 0.9rem; /* slightly smaller text */
+  font-size: 0.9rem;
   box-sizing: border-box;
   outline: none;
   transition: 0.3s;
@@ -49,11 +51,12 @@ textarea:focus {
 }
 
 textarea {
-  height: 100px; /* 👈 fixed height */
-  resize: none; /* 👈 prevents manual resizing */
+  height: 100px;
+  resize: none;
 }
 
 button {
+  width: 100%; /* ← full width so it doesn't overflow */
   background: linear-gradient(135deg, #45a049, #256d4d);
   border: none;
   border-radius: 12px;
@@ -61,8 +64,11 @@ button {
   color: #fff;
   font-weight: bold;
   letter-spacing: 0.5px;
+  cursor: pointer;
+  box-sizing: border-box;
   transition: background 0.3s, transform 0.2s;
 }
+
 button:hover {
   transform: scale(1.05);
   background: linear-gradient(90deg, #00c6ff, #0072ff);
@@ -75,9 +81,7 @@ button:disabled {
 
 @media screen and (max-width: 480px) {
   .contact-container {
-    width: calc(100% - 24px);
-    margin: 0 12px;
-    padding: 16px;
+    padding: 16px; /* ← removed the margin/width calc, parent handles spacing */
   }
 
   .contact-container h2 {

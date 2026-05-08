@@ -1,53 +1,42 @@
 .contact-me-page {
-  height: 100vh;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px 0; /* ← removed duplicate, kept the intended value */
 }
 
-/* Keep both sections balanced */
 .get-in-touch,
 .form-section {
   flex: 1;
 }
 
-.div {
-  border: 1px solid red;
-}
-
 .contact-content {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
-  gap: 60px;
-  padding: 0 60px;
-  margin-top: 150px;
+  gap: 30px; /* ← removed duplicate */
+  padding: 0 30px; /* ← removed duplicate */
   box-sizing: border-box;
-  width: 100%;
   max-width: 1200px;
+  width: 100%; /* ← ensures it doesn't exceed viewport */
 }
-
-/* Get in Touch card */
 
 .get-in-touch {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   max-width: 720px;
-  padding: 0px;
-  height: 370px;
+  padding: 0;
   color: #ffffff;
 }
 
 .get-in-touch div h2 {
-  font-size: 4.5rem;
-  margin: 0px;
+  font-size: clamp(2.2rem, 8vw, 4.5rem);
+  margin: 0;
 }
 
 .get-in-touch div h4 {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
   margin-top: 1rem;
   font-weight: 600;
   color: #ffffff;
@@ -67,7 +56,8 @@
 .contact-email {
   padding: 5px;
   display: flex;
-  gap: 50px;
+  align-items: center; /* ← keeps icon and text vertically aligned */
+  gap: 20px; /* ← removed duplicate */
 }
 
 .contact-email p,
@@ -77,21 +67,67 @@
   color: #ffffff;
 }
 
-/* Responsive (stack vertically on small screens) */
+.more-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.linkedin-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.github-icon {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+
+.more-links img {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.more-links img:hover {
+  transform: scale(1.1);
+}
+
+/* Mobile */
 @media (max-width: 768px) {
+  .contact-me-page {
+    padding: 20px 0;
+  }
+
   .contact-content {
     flex-direction: column;
     align-items: center;
-    padding: 0 20px;
-    gap: 20px;
+    text-align: center;
+    padding: 0 16px; /* ← tighter on mobile */
+    gap: 20px; /* ← removed duplicate */
   }
 
-  .get-in-touch,
+  .get-in-touch {
+    width: 100%;
+    align-items: center;
+  }
+
   .form-section {
     width: 100%;
+    display: flex;
+    justify-content: center; /* ← centers the form card */
   }
 
-  .get-in-touch h2 {
-    font-size: 1.6rem;
+  .contact-email {
+    justify-content: center; /* ← centers icon + text as a row */
+    gap: 10px;
+    padding: 6px 0;
+  }
+
+  .more-links {
+    justify-content: center;
+    width: 100%;
   }
 }
