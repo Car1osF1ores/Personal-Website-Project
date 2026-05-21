@@ -13,7 +13,7 @@
   -webkit-backdrop-filter: blur(12px);
   transition: all 0.3s ease;
   max-width: 800px;
-  margin: 20px auto;
+  margin: 20px;
   width: 100%;
 }
 
