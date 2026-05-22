@@ -30,7 +30,6 @@ body {
 
 .section-one {
   position: relative;
-  height: 60vh;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -41,6 +40,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  overflow-wrap: break-word;
 }
 
 .section-one nav {

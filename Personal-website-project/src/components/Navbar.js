@@ -1,24 +1,73 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../css/Navbar.css";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
 
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
       <div className="navbar__logo">
-        <Link to="/" onClick={closeMenu}>
+        <a href="/#">
           <img src="/assets/images/CFLogo.png" alt="Logo" />
-        </Link>
+        </a>
+      </div>
+
+      <ul className={`navbar__links ${isOpen ? "active" : ""}`}>
+        <li>
+          <a href="/#" onClick={closeMenu}>
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="/#about" onClick={closeMenu}>
+            About Me
+          </a>
+        </li>
+        <li>
+          <a href="/#projects" onClick={closeMenu}>
+            Projects
+          </a>
+        </li>
+        <li>
+          <a href="/#contact" onClick={closeMenu}>
+            Contact Me
+          </a>
+        </li>
+        <li className="navbar__links-icons">
+          <a
+            href="https://www.linkedin.com/jobs/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src="/assets/images/linkedInIcon.png" alt="LinkedIn" />
+          </a>
+          <a href="https://github.com/" target="_blank" rel="noreferrer">
+            <img src="/assets/images/GitHub-Symbol.png" alt="GitHub" />
+          </a>
+        </li>
+      </ul>
+
+      <div className="navbar__more">
+        <a
+          href="https://www.linkedin.com/jobs/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src="/assets/images/linkedInIcon.png" alt="LinkedIn" />
+        </a>
+        <a href="https://github.com/" target="_blank" rel="noreferrer">
+          <img src="/assets/images/GitHub-Symbol.png" alt="GitHub" />
+        </a>
       </div>
 
       <button
@@ -30,42 +79,6 @@ function Navbar() {
         <span></span>
         <span></span>
       </button>
-
-      <ul className={`navbar__links ${isOpen ? "active" : ""}`}>
-        <li>
-          <Link to="/" onClick={closeMenu}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/about" onClick={closeMenu}>
-            About Me
-          </Link>
-        </li>
-        <li>
-          <Link to="/projects" onClick={closeMenu}>
-            Projects
-          </Link>
-        </li>
-        <li>
-          <Link to="/contact" onClick={closeMenu}>
-            Contact Me
-          </Link>
-        </li>
-      </ul>
-
-      <div className="navbar__more">
-        <a
-          href="https://www.linkedin.com/jobs/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img src="../assets/images/linkedInIcon.png" alt="LinkedIn link" />
-        </a>
-        <a href="https://github.com/" target="_blank" rel="noreferrer">
-          <img src="../assets/images/GitHub-Symbol.png" alt="GitHub link" />
-        </a>
-      </div>
     </nav>
   );
 }

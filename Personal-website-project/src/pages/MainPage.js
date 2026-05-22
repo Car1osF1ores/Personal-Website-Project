@@ -50,6 +50,9 @@ function MainPage() {
       }`}
     >
       <VideoBg />
+
+      {/*------------------------ NAV BAR ------------------------*/}
+
       {isMobileNav && <Navbar />}
       <HomePage hideNavbar />
       <AboutPage hideNavbar />
