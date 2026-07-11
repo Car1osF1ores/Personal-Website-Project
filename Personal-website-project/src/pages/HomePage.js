@@ -1,5 +1,6 @@
 import "../css/homePage.css";
 import HeroText from "../components/HeroText.js";
+import profilePicture from "../assets/images/Profile-Picture.png";
 
 function HomePage() {
   return (
@@ -16,11 +17,7 @@ function HomePage() {
         </div>
         <div className="right-article">
           <div className="hero-image-wrapper slide-in-left-right">
-            <img
-              src="assets/images/Profile-Picture.png"
-              alt="Hero"
-              className="hero-image"
-            />
+            <img src={profilePicture} alt="Hero" className="hero-image" />
           </div>
         </div>
       </div>

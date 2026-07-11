@@ -7,9 +7,10 @@ import HomePage from "./HomePage";
 import AboutPage from "./AboutPage";
 import ProjectsPage from "./ProjectPage";
 import ContactMePage from "./ContactMePage";
+import glowBackgroundVideo from "../assets/videos/glow-background.mp4";
+import posterFallback from "../assets/images/poster-fallback.jpg";
 
 const MOBILE_NAV_QUERY = "(max-width: 768px)";
-const VIDEO_SRC = "../assets/videos/glow-background.mp4";
 
 function useHashScroll() {
   const location = useLocation();
@@ -31,9 +32,10 @@ function VideoBg() {
         loop
         muted
         playsInline
-        poster="/path/to/poster-fallback.jpg"
+        preload="auto"
+        poster={posterFallback}
       >
-        <source src={VIDEO_SRC} type="video/mp4" />
+        <source src={glowBackgroundVideo} type="video/mp4" />
       </video>
     </div>
   );

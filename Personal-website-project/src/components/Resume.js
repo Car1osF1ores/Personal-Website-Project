@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../css/Resume.css"; // Import the CSS file
+import resumeImage from "../assets/images/Resume.png";
 
 function Resume() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -15,7 +16,7 @@ function Resume() {
     >
       <img
         className="Resume"
-        src="/assets/images/Resume.png"
+        src={resumeImage}
         alt="Resume"
         onClick={() => setIsExpanded(true)}
         style={{
@@ -50,7 +51,7 @@ function Resume() {
           }}
         >
           <img
-            src="/assets/images/Resume.png"
+            src={resumeImage}
             alt="Resume Expanded"
             onClick={(e) => e.stopPropagation()}
             style={{

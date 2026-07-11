@@ -1,3 +1,10 @@
+import chatAppImg from "../assets/images/chat-app.png";
+import equipmentDashboardImg from "../assets/images/equipment-dashboard.png";
+import natureImg from "../assets/images/nature.jpg";
+import carRentalImg from "../assets/images/car-rental.png";
+import treeForestImg from "../assets/images/treeForest.jpg";
+import gtaDashboardImg from "../assets/images/gta-dashboard.png";
+
 const projects = [
   {
     id: 1,
@@ -33,7 +40,7 @@ const projects = [
       "Bootstrap",
       "GitHub",
     ],
-    image: "/assets/images/chat-app.png",
+    image: chatAppImg,
     github: "",
     demo: "",
   },
@@ -52,7 +59,7 @@ const projects = [
       "Bootstrap",
       "GitHub",
     ],
-    image: "/assets/images/equipment-dashboard.png",
+    image: equipmentDashboardImg,
     github: "",
     demo: "",
   },
@@ -63,7 +70,7 @@ const projects = [
       "Implemented core features including sound playback and habit tracking using Flutter. Integrated Firebase and SQLite for local and remote data synchronization.",
     framework: "Flutter",
     tech: ["Flutter", "Dart", "Firebase", "SQLite", "GitHub"],
-    image: "/assets/images/nature.jpg",
+    image: natureImg,
     github: "",
     demo: "",
   },
@@ -74,7 +81,7 @@ const projects = [
       "Developed the Car Screen feature and contributed to UX design. Applied design patterns such as Singleton, Factory, and Observer using Jetpack Compose.",
     framework: "Android",
     tech: ["Kotlin", "Jetpack Compose", "Firebase", "SQLite", "Android Studio"],
-    image: "/assets/images/car-rental.png",
+    image: carRentalImg,
     github: "",
     demo: "",
   },
@@ -85,7 +92,7 @@ const projects = [
       "Built multiple small demo applications across web and mobile platforms, including news apps using APIs and calculator apps in multiple programming languages.",
     framework: "Multi-Platform",
     tech: ["React", "Java", "C#", "Kotlin", "Flutter", "REST APIs"],
-    image: "/assets/images/treeForest.jpg",
+    image: treeForestImg,
     github: "",
     demo: "",
   },
@@ -96,7 +103,7 @@ const projects = [
       "Built a chat demo application across web demonstrating real-time messaging and user authentication features using various technologies.",
     framework: "ASP.NET",
     tech: ["C#", "REST APIs", "SignalR", "Bootstrap", "HTML", "CSS"],
-    image: "/assets/images/chat-app.png",
+    image: chatAppImg,
     github: "",
     demo: "",
   },
@@ -107,7 +114,7 @@ const projects = [
       "Built a static HTML site showcasing GTA 6 Demo, utilizing Bootstrap for responsive design and CSS for styling to create an engaging user experience.",
     framework: "Static Web",
     tech: ["HTML", "CSS"],
-    image: "/assets/images/gta-dashboard.png",
+    image: gtaDashboardImg,
     github: "",
     demo: "",
   },

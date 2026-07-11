@@ -3,6 +3,8 @@ import "../css/contactForm.css";
 import "../css/contactMePage.css";
 import { FaEnvelope } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa";
+import linkedInIcon from "../assets/images/linkedInIcon.png";
+import githubIcon from "../assets/images/GitHub-Symbol.png";
 
 function ContactMePage() {
   return (
@@ -44,7 +46,7 @@ function ContactMePage() {
               >
                 <img
                   className="slide-in-right-left linkedin-icon"
-                  src="../assets/images/linkedInIcon.png"
+                  src={linkedInIcon}
                   alt="LinkedIn link"
                 />
               </a>
@@ -52,7 +54,7 @@ function ContactMePage() {
               <a href="https://github.com/" target="_blank" rel="noreferrer">
                 <img
                   className="slide-in-right-left github-icon"
-                  src="../assets/images/GitHub-Symbol.png"
+                  src={githubIcon}
                   alt="GitHub link"
                 />
               </a>
