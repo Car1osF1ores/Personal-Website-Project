@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/Personal-Website-Project/static/css/main.c4004af4.css",
+    "main.js": "/Personal-Website-Project/static/js/main.58ecf204.js",
+    "static/js/453.c2ff86e9.chunk.js": "/Personal-Website-Project/static/js/453.c2ff86e9.chunk.js",
+    "static/media/treeForest.jpg": "/Personal-Website-Project/static/media/treeForest.45ce509d9ca29a9b964b.jpg",
+    "static/media/glow-background.mp4": "/Personal-Website-Project/static/media/glow-background.1b1f104ae7720eeb14c5.mp4",
+    "static/media/gta-dashboard.png": "/Personal-Website-Project/static/media/gta-dashboard.553482562a67afa3b3f4.png",
+    "static/media/nature.jpg": "/Personal-Website-Project/static/media/nature.d100bac9850af22e892f.jpg",
+    "static/media/Profile-Picture.png": "/Personal-Website-Project/static/media/Profile-Picture.872c65d5b349849e2e6f.png",
+    "static/media/Resume.png": "/Personal-Website-Project/static/media/Resume.82e93a171f25ffae9e82.png",
+    "static/media/equipment-dashboard.png": "/Personal-Website-Project/static/media/equipment-dashboard.fd4e4fcda30c9307f42b.png",
+    "static/media/chat-app.png": "/Personal-Website-Project/static/media/chat-app.a827945a573063c8a26d.png",
+    "static/media/springbooticon.png": "/Personal-Website-Project/static/media/springbooticon.1fe28f23f396250245dc.png",
+    "static/media/car-rental.png": "/Personal-Website-Project/static/media/car-rental.24df24696b8b75940419.png",
+    "static/media/c-sharp.png": "/Personal-Website-Project/static/media/c-sharp.4a32f53d425c7ad4cb05.png",
+    "static/media/program.png": "/Personal-Website-Project/static/media/program.6e8b1c949b5354c0fb37.png",
+    "static/media/SQLicon.png": "/Personal-Website-Project/static/media/SQLicon.d0875781b3030e385cc1.png",
+    "static/media/developer.png": "/Personal-Website-Project/static/media/developer.32b62ce59cc5b14b6f6a.png",
+    "static/media/GitHub-Symbol.png": "/Personal-Website-Project/static/media/GitHub-Symbol.cc7d438083610e33e8f7.png",
+    "static/media/css-3.png": "/Personal-Website-Project/static/media/css-3.463e319bad8e0edf1ef7.png",
+    "static/media/html-5.png": "/Personal-Website-Project/static/media/html-5.9c1e5edf3e401bf5e7b4.png",
+    "static/media/linkedInIcon.png": "/Personal-Website-Project/static/media/linkedInIcon.fe4dbe4730a4a1fd82cf.png",
+    "static/media/kotlinicon.webp": "/Personal-Website-Project/static/media/kotlinicon.634b00cd169c748af36b.webp",
+    "index.html": "/Personal-Website-Project/index.html",
+    "main.c4004af4.css.map": "/Personal-Website-Project/static/css/main.c4004af4.css.map",
+    "main.58ecf204.js.map": "/Personal-Website-Project/static/js/main.58ecf204.js.map",
+    "453.c2ff86e9.chunk.js.map": "/Personal-Website-Project/static/js/453.c2ff86e9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c4004af4.css",
+    "static/js/main.58ecf204.js"
+  ]
+}
