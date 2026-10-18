@@ -41,8 +41,8 @@ function HeroSection() {
         </p>
 
         <a
-          href="/Carlos_Flores_Resume__FullStackDeveloper.pdf"
-          download="/Carlos_Flores_Resume__FullStackDeveloper.pdf"
+          href={`${process.env.PUBLIC_URL}/Carlos_Flores_Resume__FullStackDeveloper.pdf`}
+          download="Carlos_Flores_Resume__FullStackDeveloper.pdf"
           className="Download-button"
         >
           Download Resume ↓
