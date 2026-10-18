@@ -41,8 +41,8 @@ function HeroSection() {
         </p>
 
         <a
-          href="/CarlosResume.pdf"
-          download="CarlosResume.pdf"
+          href="/Carlos_Flores_Resume__FullStackDeveloper.pdf"
+          download="Carlos_Flores_Resume__FullStackDeveloper.pdf"
           className="Download-button"
         >
           Download Resume ↓

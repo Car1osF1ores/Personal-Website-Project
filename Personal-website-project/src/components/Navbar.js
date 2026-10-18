@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import "../css/Navbar.css";
+import linkedInIcon from "../assets/images/linkedInIcon.png";
+import githubIcon from "../assets/images/GitHub-Symbol.png";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,29 +19,27 @@ function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
       <div className="navbar__logo">
-        <a href="/#">
-          <img src="/assets/images/CFLogo.png" alt="Logo" />
-        </a>
+        <a href="#" onClick={closeMenu}></a>
       </div>
 
       <ul className={`navbar__links ${isOpen ? "active" : ""}`}>
         <li>
-          <a href="/#" onClick={closeMenu}>
+          <a href="#" onClick={closeMenu}>
             Home
           </a>
         </li>
         <li>
-          <a href="/#about" onClick={closeMenu}>
+          <a href="#about" onClick={closeMenu}>
             About Me
           </a>
         </li>
         <li>
-          <a href="/#projects" onClick={closeMenu}>
+          <a href="#projects" onClick={closeMenu}>
             Projects
           </a>
         </li>
         <li>
-          <a href="/#contact" onClick={closeMenu}>
+          <a href="#contact" onClick={closeMenu}>
             Contact Me
           </a>
         </li>
@@ -49,10 +49,10 @@ function Navbar() {
             target="_blank"
             rel="noreferrer"
           >
-            <img src="/assets/images/linkedInIcon.png" alt="LinkedIn" />
+            <img src={linkedInIcon} alt="LinkedIn" />
           </a>
           <a href="https://github.com/" target="_blank" rel="noreferrer">
-            <img src="/assets/images/GitHub-Symbol.png" alt="GitHub" />
+            <img src={githubIcon} alt="GitHub" />
           </a>
         </li>
       </ul>
@@ -63,10 +63,10 @@ function Navbar() {
           target="_blank"
           rel="noreferrer"
         >
-          <img src="/assets/images/linkedInIcon.png" alt="LinkedIn" />
+          <img src={linkedInIcon} alt="LinkedIn" />
         </a>
         <a href="https://github.com/" target="_blank" rel="noreferrer">
-          <img src="/assets/images/GitHub-Symbol.png" alt="GitHub" />
+          <img src={githubIcon} alt="GitHub" />
         </a>
       </div>
 
